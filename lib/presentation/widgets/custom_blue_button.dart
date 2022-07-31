@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
 
-class LoginButton extends StatelessWidget {
-  const LoginButton({
+class CustomBlueButton extends StatelessWidget {
+  final String buttonText;
+  const CustomBlueButton({
+    required this.buttonText,
     Key? key,
   }) : super(key: key);
 
@@ -15,9 +17,9 @@ class LoginButton extends StatelessWidget {
             minimumSize: const Size(double.infinity, 45),
             shape: const StadiumBorder()),
         onPressed: () {},
-        child: const Text(
-          'Login',
-          style: whiteTxt16,
+        child: Text(
+          buttonText,
+          style: whiteTxt15,
         ));
   }
 }

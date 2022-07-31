@@ -25,7 +25,7 @@ class GoogleSignInButton extends StatelessWidget {
           const Spacer(),
           const Text(
             'Sign in Google account',
-            style: whiteTxt16,
+            style: whiteTxt15,
           ),
           const Spacer()
         ],

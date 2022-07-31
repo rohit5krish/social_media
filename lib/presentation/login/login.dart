@@ -3,10 +3,9 @@ import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
 import 'package:social_media/presentation/login/widget/footer_content.dart';
 import 'package:social_media/presentation/login/widget/google_signin_button.dart';
-import 'package:social_media/presentation/login/widget/login_button.dart';
+import 'package:social_media/presentation/widgets/custom_blue_button.dart';
 import 'package:social_media/presentation/login/widget/or_divider_widget.dart';
-import 'package:social_media/presentation/login/widget/password_text_field.dart';
-import 'package:social_media/presentation/login/widget/username_text_field.dart';
+import 'package:social_media/presentation/widgets/custom_text_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -35,11 +34,17 @@ class LoginPage extends StatelessWidget {
                       style: whiteTxt22,
                     ),
                     sbHeight30,
-                    const UserNameTextField(),
+                    const CustomTextField(
+                      labelText: 'Username or Phone number',
+                    ),
                     sbHeight10,
-                    const PasswordTextField(),
+                    const CustomTextField(
+                      labelText: 'Password',
+                    ),
                     sbHeight10,
-                    const LoginButton(),
+                    const CustomBlueButton(
+                      buttonText: 'Login',
+                    ),
                     TextButton(
                         onPressed: () {},
                         child: const Text('Forgot Password?')),

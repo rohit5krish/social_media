@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
 
-class UserNameTextField extends StatelessWidget {
-  const UserNameTextField({
+class CustomTextField extends StatelessWidget {
+  final String labelText;
+  const CustomTextField({
     Key? key,
+    required this.labelText,
   }) : super(key: key);
 
   @override
@@ -19,8 +21,8 @@ class UserNameTextField extends StatelessWidget {
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(15),
           ),
-          label: const Text(
-            'Username or Phone number',
+          label: Text(
+            labelText,
             style: txtFormStyle,
           )),
     );
