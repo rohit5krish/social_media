@@ -41,11 +41,17 @@ class HomePagePostWidget extends StatelessWidget {
           padding: EdgeInsets.only(left: 8, top: 8, bottom: 8),
           child: Text(
             'Here Starts our game Development challenge. You can Register for free using the link in the...',
-            style: whiteTxt15,
+            style: TextStyle(height: 1.4, color: whiteColor),
           ),
         ),
-        Image.network(
-            'https://blog.instabug.com/wp-content/uploads/2021/01/b_Must-Have-Mobile-Game-Development-Tools-.png'),
+        Container(
+          width: double.infinity,
+          height: 400,
+          child: Image.network(
+            'https://media.wired.com/photos/61f48f02d0e55ccbebd52d15/master/pass/Gear-Rant-Game-Family-Plans-1334436001.jpg',
+            fit: BoxFit.cover,
+          ),
+        ),
         Row(
           children: [
             Column(
@@ -58,7 +64,7 @@ class HomePagePostWidget extends StatelessWidget {
                     icon: const Icon(
                       Icons.favorite_border_rounded,
                       color: whiteColor,
-                      size: 28,
+                      size: 30,
                     )),
                 const Text('843', style: whiteTxt12)
               ],
@@ -84,7 +90,7 @@ class HomePagePostWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 20, left: 12),
                 onPressed: () {},
                 icon: const Icon(Icons.send_rounded,
-                    color: whiteColor, size: 28)),
+                    color: whiteColor, size: 30)),
             const Spacer(),
             const Padding(
               padding: EdgeInsets.only(right: 8),
