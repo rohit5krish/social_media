@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/presentation/home/home.dart';
+import 'package:social_media/presentation/navigation/navigation.dart';
 
 class CustomBlueButton extends StatelessWidget {
   final String buttonText;
@@ -16,7 +18,11 @@ class CustomBlueButton extends StatelessWidget {
             primary: blueClr800,
             minimumSize: const Size(double.infinity, 45),
             shape: const StadiumBorder()),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            return NavigationPage();
+          }));
+        },
         child: Text(
           buttonText,
           style: whiteTxt15,
