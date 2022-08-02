@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
@@ -28,9 +30,12 @@ class BottomMessageSection extends StatelessWidget {
             height: 50,
             child: TextFormField(
               decoration: InputDecoration(
-                  suffixIcon: Icon(
-                    Icons.mic,
-                    color: whiteColor,
+                  suffixIcon: Transform.rotate(
+                    angle: 90 * pi / 180,
+                    child: Icon(
+                      Icons.attach_file,
+                      color: whiteColor,
+                    ),
                   ),
                   border: OutlineInputBorder(
                     borderSide: BorderSide.none,
