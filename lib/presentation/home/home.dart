@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
 import 'package:social_media/presentation/home/widget/post_widget.dart';
+import 'package:social_media/presentation/search/search.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -22,11 +23,17 @@ class HomePage extends StatelessWidget {
           IconButton(
               highlightColor: Colors.transparent,
               splashColor: Colors.transparent,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return SearchPage();
+                }));
+              },
               icon: const Icon(Icons.search))
         ],
       ),
       body: ListView.builder(
+          physics: BouncingScrollPhysics(),
           itemCount: 4,
           itemBuilder: (context, index) {
             return const HomePagePostWidget();

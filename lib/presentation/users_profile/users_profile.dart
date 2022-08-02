@@ -21,13 +21,6 @@ class UsersProfile extends StatelessWidget {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFt7tGHzZ7cKmZyht0FYn7fj9PoqG43VDQTg&usqp=CAU'
   ];
 
-  List<String> savedImgs = [
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUOYi55viJNSimhUQ2bH9L9nDkiHuJ_b3lwv8dTyFucohaLvkR3ZJc3PZeQIdcuXByJ5s&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO9enQLrI_lyBCkJoJiDkT4Op9tybPdGkqXA&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFt7tGHzZ7cKmZyht0FYn7fj9PoqG43VDQTg&usqp=CAU',
-    'https://wallpapercave.com/wp/wp2561857.jpg',
-  ];
-
   List<String> imgUrls = [];
 
   UsersProfile({Key? key}) : super(key: key);
@@ -43,6 +36,7 @@ class UsersProfile extends StatelessWidget {
           toolbarHeight: 70,
         ),
         body: ListView(
+          physics: BouncingScrollPhysics(),
           children: [
             // DP and Followers Section
             ProfileTopFollowerSection(),
@@ -79,20 +73,14 @@ class UsersProfile extends StatelessWidget {
               ],
             ),
             sbHeight20,
-            Expanded(
-              child: BlocBuilder<ProfileBloc, ProfileState>(
-                builder: (context, state) {
-                  if (state.selectedToggle[0] == true) {
-                    imgUrls = profilePosts;
-                  } else {
-                    imgUrls = savedImgs;
-                  }
-                  // Posts Grid
-                  return ProfilePostsGrid(
-                    imgDatas: imgUrls,
-                  );
-                },
-              ),
+            BlocBuilder<ProfileBloc, ProfileState>(
+              builder: (context, state) {
+                imgUrls = profilePosts;
+                // Posts Grid
+                return ProfilePostsGrid(
+                  imgDatas: imgUrls,
+                );
+              },
             ),
             sbHeight50
           ],

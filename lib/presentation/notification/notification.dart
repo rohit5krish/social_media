@@ -23,6 +23,7 @@ class NotificationsPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: ListView(
+          physics: BouncingScrollPhysics(),
           children: [
             FollowNotiWidget(
               isFollowed: false,

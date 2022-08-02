@@ -46,6 +46,7 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
         body: ListView(
+          physics: BouncingScrollPhysics(),
           children: [
             // DP and Followers Section
             ProfileTopFollowerSection(),
@@ -70,20 +71,18 @@ class ProfilePage extends StatelessWidget {
               ],
             ),
             sbHeight10,
-            Expanded(
-              child: BlocBuilder<ProfileBloc, ProfileState>(
-                builder: (context, state) {
-                  if (state.selectedToggle[0] == true) {
-                    imgUrls = profilePosts;
-                  } else {
-                    imgUrls = savedImgs;
-                  }
-                  // Posts Grid
-                  return ProfilePostsGrid(
-                    imgDatas: imgUrls,
-                  );
-                },
-              ),
+            BlocBuilder<ProfileBloc, ProfileState>(
+              builder: (context, state) {
+                if (state.selectedToggle[0] == true) {
+                  imgUrls = profilePosts;
+                } else {
+                  imgUrls = savedImgs;
+                }
+                // Posts Grid
+                return ProfilePostsGrid(
+                  imgDatas: imgUrls,
+                );
+              },
             ),
             sbHeight50
           ],
