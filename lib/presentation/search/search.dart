@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/presentation/users_profile/users_profile.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -43,20 +44,28 @@ class SearchPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 28,
-                              backgroundImage: NetworkImage(
-                                  'https://wallpapercave.com/wp/wp2561857.jpg'),
-                            ),
-                            sbWidth10,
-                            Text('Rohit', style: whiteTxt18),
-                            Spacer(),
-                            IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.close, color: whiteColor))
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return UsersProfile();
+                            }));
+                          },
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 28,
+                                backgroundImage: NetworkImage(
+                                    'https://wallpapercave.com/wp/wp2561857.jpg'),
+                              ),
+                              sbWidth10,
+                              Text('Rohit', style: whiteTxt18),
+                              Spacer(),
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.close, color: whiteColor))
+                            ],
+                          ),
                         ),
                         sbHeight10
                       ],

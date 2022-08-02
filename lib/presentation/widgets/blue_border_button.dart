@@ -17,11 +17,7 @@ class BlueBorderButton extends StatelessWidget {
             primary: Colors.transparent,
             minimumSize: const Size(50, 30),
             shape: const StadiumBorder()),
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            return UsersProfile();
-          }));
-        },
+        onPressed: () {},
         child: Text(
           buttonTxt,
           style: whiteTxt15,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/presentation/chat_screen/chat_screen.dart';
 import 'package:social_media/presentation/messages/widget/chat_list.dart';
 import 'package:social_media/presentation/messages/widget/chat_search.dart';
 import 'package:social_media/presentation/messages/widget/group_chat_list.dart';
@@ -43,7 +44,14 @@ class MessagesPage extends StatelessWidget {
                         ListView.builder(
                             itemCount: 25,
                             itemBuilder: (context, index) {
-                              return ChatListWidget();
+                              return InkWell(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) {
+                                      return ChatScreen();
+                                    }));
+                                  },
+                                  child: ChatListWidget());
                             }),
                         ListView.builder(
                             itemCount: 20,
