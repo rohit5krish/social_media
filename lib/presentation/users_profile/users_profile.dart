@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/application/profile/profile_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
-import 'package:social_media/presentation/profile/widgets/custom_toggle_button.dart';
 import 'package:social_media/presentation/widgets/blue_border_button.dart';
+import 'package:social_media/presentation/widgets/follow_button.dart';
 import 'package:social_media/presentation/widgets/profile_followers_section.dart';
 import 'package:social_media/presentation/widgets/profile_posts.dart';
 
-class ProfilePage extends StatelessWidget {
+class UsersProfile extends StatelessWidget {
   List<String> profilePosts = [
     'https://wallpapercave.com/wp/wp2561857.jpg',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDBzKoPWzynNN4Rk5Oam3dqpbt_e8fv_U7jA&usqp=CAU',
@@ -30,20 +30,17 @@ class ProfilePage extends StatelessWidget {
 
   List<String> imgUrls = [];
 
-  ProfilePage({Key? key}) : super(key: key);
+  UsersProfile({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: blackColor,
         appBar: AppBar(
           title: Text('rohxt._'),
           centerTitle: true,
           backgroundColor: blackColor,
-          automaticallyImplyLeading: false,
           toolbarHeight: 70,
-          actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.settings_outlined))
-          ],
         ),
         body: ListView(
           children: [
@@ -59,17 +56,29 @@ class ProfilePage extends StatelessWidget {
                   style: whiteTxt16,
                   textAlign: TextAlign.center,
                 ),
-                sbHeight10,
-                // Edit Profile Button
-                BlueBorderButton(
-                  buttonTxt: 'Edit Profile',
-                ),
                 sbHeight20,
-                // Post/Saved Toggle Buttons
-                CustomeToggleButtons(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    FollowUnfollowButton(isFollowed: false),
+                    BlueBorderButton(buttonTxt: 'Message')
+                  ],
+                ),
+                sbHeight30,
+                Text(
+                  'Posts',
+                  style: whiteTxt22,
+                ),
+                Divider(
+                  color: blueClr800,
+                  indent: screenSize.width * 0.4,
+                  endIndent: screenSize.width * 0.4,
+                  thickness: 2,
+                  height: 10,
+                )
               ],
             ),
-            sbHeight10,
+            sbHeight20,
             Expanded(
               child: BlocBuilder<ProfileBloc, ProfileState>(
                 builder: (context, state) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/presentation/widgets/follow_button.dart';
 
 class FollowNotiWidget extends StatelessWidget {
   final bool isFollowed;
@@ -24,17 +25,7 @@ class FollowNotiWidget extends StatelessWidget {
           style: whiteTxt16,
         ),
         Spacer(),
-        ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                side: BorderSide(color: Color.fromARGB(255, 72, 50, 240)),
-                primary: isFollowed ? Colors.transparent : blueClr800,
-                minimumSize: const Size(50, 30),
-                shape: const StadiumBorder()),
-            onPressed: () {},
-            child: Text(
-              isFollowed ? 'Following' : 'Follow',
-              style: whiteTxt15,
-            ))
+        FollowUnfollowButton(isFollowed: isFollowed)
       ],
     );
   }
