@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/presentation/home/widget/share_bottom_sheet.dart';
 import 'package:social_media/presentation/profile/profile.dart';
 
 class HomePagePostWidget extends StatelessWidget {
@@ -10,6 +11,7 @@ class HomePagePostWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
@@ -96,7 +98,9 @@ class HomePagePostWidget extends StatelessWidget {
                 splashColor: Colors.transparent,
                 constraints: const BoxConstraints(),
                 padding: const EdgeInsets.only(bottom: 20, left: 12),
-                onPressed: () {},
+                onPressed: () {
+                  sharePost(context: context, scrnSize: screenSize);
+                },
                 icon: const Icon(Icons.send_rounded,
                     color: whiteColor, size: 30)),
             const Spacer(),

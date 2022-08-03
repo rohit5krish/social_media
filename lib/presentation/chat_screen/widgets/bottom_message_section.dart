@@ -44,7 +44,7 @@ class BottomMessageSection extends StatelessWidget {
                   hintText: 'Message..',
                   hintStyle: txtFormStyle,
                   filled: true,
-                  fillColor: blueClr800,
+                  fillColor: lightBlack,
                   contentPadding: EdgeInsets.only(left: 15)),
             ),
           ),

@@ -9,25 +9,6 @@ import 'package:social_media/presentation/widgets/profile_followers_section.dart
 import 'package:social_media/presentation/widgets/profile_posts.dart';
 
 class ProfilePage extends StatelessWidget {
-  List<String> profilePosts = [
-    'https://wallpapercave.com/wp/wp2561857.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDBzKoPWzynNN4Rk5Oam3dqpbt_e8fv_U7jA&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDh84qSwz0Mo1fCgotOxZ7si4XumjP_44lw&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSde2ei06z-FX-N92XN6Uca9Zzjy38bOgiCrQ&usqp=CAU',
-    'https://wallpapercave.com/wp/wp2561857.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDBzKoPWzynNN4Rk5Oam3dqpbt_e8fv_U7jA&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDh84qSwz0Mo1fCgotOxZ7si4XumjP_44lw&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSde2ei06z-FX-N92XN6Uca9Zzjy38bOgiCrQ&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFt7tGHzZ7cKmZyht0FYn7fj9PoqG43VDQTg&usqp=CAU'
-  ];
-
-  List<String> savedImgs = [
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUOYi55viJNSimhUQ2bH9L9nDkiHuJ_b3lwv8dTyFucohaLvkR3ZJc3PZeQIdcuXByJ5s&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO9enQLrI_lyBCkJoJiDkT4Op9tybPdGkqXA&usqp=CAU',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFt7tGHzZ7cKmZyht0FYn7fj9PoqG43VDQTg&usqp=CAU',
-    'https://wallpapercave.com/wp/wp2561857.jpg',
-  ];
-
   List<String> imgUrls = [];
 
   ProfilePage({Key? key}) : super(key: key);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/presentation/user_posts_view/user_post_view.dart';
 
 class ProfilePostsGrid extends StatelessWidget {
   final List<String> imgDatas;
@@ -16,10 +17,17 @@ class ProfilePostsGrid extends StatelessWidget {
         mainAxisSpacing: 5,
         crossAxisSpacing: 5,
         children: List.generate(imgDatas.length, (index) {
-          return Container(
-            child: Image.network(
-              '${imgDatas[index]}',
-              fit: BoxFit.cover,
+          return InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return UserPostsView();
+              }));
+            },
+            child: Container(
+              child: Image.network(
+                '${imgDatas[index]}',
+                fit: BoxFit.cover,
+              ),
             ),
           );
         }));

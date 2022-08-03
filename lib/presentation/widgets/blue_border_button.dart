@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
 import 'package:social_media/presentation/edit_profile/edit_profile.dart';
-import 'package:social_media/presentation/users_profile/users_profile.dart';
 
 class BlueBorderButton extends StatelessWidget {
   final String buttonTxt;
@@ -14,7 +14,7 @@ class BlueBorderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-            side: BorderSide(color: Color.fromARGB(255, 72, 50, 240)),
+            side: BorderSide(color: blueClr800!),
             primary: Colors.transparent,
             minimumSize: const Size(50, 30),
             shape: const StadiumBorder()),
