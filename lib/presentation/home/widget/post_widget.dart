@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/presentation/profile/profile.dart';
 
 class HomePagePostWidget extends StatelessWidget {
   const HomePagePostWidget({
@@ -21,10 +22,17 @@ class HomePagePostWidget extends StatelessWidget {
               ),
             ),
             sbWidth10,
-            const Text(
-              'Brototype',
-              style: whiteTxt22,
-            ),
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return ProfilePage();
+                  }));
+                },
+                child: Text(
+                  'Brototype',
+                  style: whiteTxt22,
+                )),
             const Spacer(),
             IconButton(
                 highlightColor: Colors.transparent,

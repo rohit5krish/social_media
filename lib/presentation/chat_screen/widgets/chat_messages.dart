@@ -25,7 +25,7 @@ class ChatMessagesWidget extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-              color: Colors.white38,
+              color: Colors.white30,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),

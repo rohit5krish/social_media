@@ -11,42 +11,48 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: blackColor,
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'English',
-                style: TextStyle(color: whiteClr60),
-              ),
-              Column(
-                children: const [
-                  Text(
-                    'Create an account',
-                    style: whiteTxt22,
-                  ),
-                  sbHeight30,
-                  CustomTextField(labelText: 'Enter a Username'),
-                  sbHeight10,
-                  CustomTextField(labelText: 'Phone'),
-                  sbHeight10,
-                  CustomTextField(labelText: 'Password'),
-                  sbHeight10,
-                  CustomTextField(labelText: 'Confirm Password'),
-                  sbHeight10,
-                  CustomBlueButton(buttonText: 'Sign Up'),
-                ],
-              ),
-              sbHeight10
-            ],
+      body: InkWell(
+        splashFactory: NoSplash.splashFactory,
+        onTap: () {
+          FocusManager.instance.primaryFocus!.unfocus();
+        },
+        child: SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'English',
+                  style: TextStyle(color: whiteClr60),
+                ),
+                Column(
+                  children: const [
+                    Text(
+                      'Create an account',
+                      style: whiteTxt22,
+                    ),
+                    sbHeight30,
+                    CustomTextField(labelText: 'Enter a Username'),
+                    sbHeight10,
+                    CustomTextField(labelText: 'Phone'),
+                    sbHeight10,
+                    CustomTextField(labelText: 'Password'),
+                    sbHeight10,
+                    CustomTextField(labelText: 'Confirm Password'),
+                    sbHeight10,
+                    CustomBlueButton(buttonText: 'Sign Up'),
+                  ],
+                ),
+                sbHeight10
+              ],
+            ),
           ),
-        ),
-      )),
+        )),
+      ),
     );
   }
 }
