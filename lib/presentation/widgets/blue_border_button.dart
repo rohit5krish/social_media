@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/presentation/edit_profile/edit_profile.dart';
 import 'package:social_media/presentation/users_profile/users_profile.dart';
 
 class BlueBorderButton extends StatelessWidget {
@@ -17,7 +18,11 @@ class BlueBorderButton extends StatelessWidget {
             primary: Colors.transparent,
             minimumSize: const Size(50, 30),
             shape: const StadiumBorder()),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            return EditProfile();
+          }));
+        },
         child: Text(
           buttonTxt,
           style: whiteTxt15,
