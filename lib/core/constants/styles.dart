@@ -38,3 +38,14 @@ List<String> savedImgs = [
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFt7tGHzZ7cKmZyht0FYn7fj9PoqG43VDQTg&usqp=CAU',
   'https://wallpapercave.com/wp/wp2561857.jpg',
 ];
+
+List<String> messages = [
+  'hey',
+  'Hello there! How are You?',
+  'yo yo man',
+  'Hi',
+  'Fine',
+  'I Hope you are doing well on these convid pandemic situation as there was a lot of cases reported in the city.',
+  'How are you doing? I think  you are doing well, Im hoping to meet you soon lets see if it would be happening.'
+];
+List<bool> isUser = [true, true, false, true, false, false, true];

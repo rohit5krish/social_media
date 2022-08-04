@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/application/profile/profile_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
-import 'package:social_media/presentation/login/login.dart';
+import 'package:social_media/presentation/splash/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: blackColor,
             )),
         debugShowCheckedModeBanner: false,
-        home: LoginPage(),
+        home: SplashScreen(),
       ),
     );
   }

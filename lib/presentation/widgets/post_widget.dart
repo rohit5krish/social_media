@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/presentation/comments/comments_page.dart';
 import 'package:social_media/presentation/home/widget/share_bottom_sheet.dart';
 import 'package:social_media/presentation/profile/profile.dart';
 
@@ -84,7 +85,12 @@ class HomePagePostWidget extends StatelessWidget {
                 IconButton(
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
-                    onPressed: () {},
+                    onPressed: () {
+                      // Navigator.of(context)
+                      //     .push(MaterialPageRoute(builder: (context) {
+                      //   return CommentsPage();
+                      // }));
+                    },
                     icon: const Icon(
                       Icons.mode_comment_outlined,
                       color: whiteColor,

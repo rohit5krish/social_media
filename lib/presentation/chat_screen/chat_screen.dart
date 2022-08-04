@@ -6,16 +6,7 @@ import 'package:social_media/presentation/chat_screen/widgets/chat_messages.dart
 
 class ChatScreen extends StatelessWidget {
   ChatScreen({Key? key}) : super(key: key);
-  List<String> messages = [
-    'hey',
-    'Hello there! How are You?',
-    'yo yo man',
-    'Hi',
-    'Fine',
-    'I Hope you are doing well on these convid pandemic situation as there was a lot of cases reported in the city.',
-    'How are you doing? I think  you are doing well, Im hoping to meet you soon lets see if it would be happening.'
-  ];
-  List<bool> isUser = [true, true, false, true, false, false, true];
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
