@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/application/profile/profile_bloc.dart';
+import 'package:social_media/application/signup/signup_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/presentation/splash/splash.dart';
 
@@ -17,7 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => ProfileBloc())],
+      providers: [
+        BlocProvider(create: (context) => ProfileBloc()),
+        BlocProvider(create: (context) => SignupBloc())
+      ],
       child: MaterialApp(
         theme: ThemeData(
             primarySwatch: Colors.blue,
@@ -31,6 +35,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-// implementation platform('com.google.firebase:firebase-bom:30.3.1')

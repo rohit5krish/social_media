@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/infrastructure/signup/signup_auth.dart';
 import 'package:social_media/presentation/navigation/navigation.dart';
 
 class CustomBlueButton extends StatelessWidget {
@@ -26,10 +27,15 @@ class CustomBlueButton extends StatelessWidget {
             primary: blueClr800,
             minimumSize: const Size(double.infinity, 45),
             shape: const StadiumBorder()),
-        onPressed: () {
+        onPressed: () async {
           if (buttonUse == loginButtonEnums.signUp) {
             print(
                 '${usernameCtrl!.text}\n${emailCtrl!.text}\n${passCtrl!.text}');
+            String res = await SignUpAuth().SignUpUser(
+                username: usernameCtrl!.text,
+                email: emailCtrl!.text,
+                password: passCtrl!.text);
+            print(res);
           }
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
             return NavigationPage();

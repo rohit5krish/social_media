@@ -4,6 +4,10 @@ import 'package:social_media/core/constants/colors.dart';
 const whiteTxt22 = TextStyle(color: whiteColor, fontSize: 22);
 const whiteTxt22B =
     TextStyle(color: whiteColor, fontSize: 22, fontWeight: FontWeight.bold);
+const whiteTxt25 = TextStyle(
+  color: whiteColor,
+  fontSize: 25,
+);
 const whiteTxt12 = TextStyle(color: whiteColor, fontSize: 12);
 const whiteTxt15 = TextStyle(color: whiteColor, fontSize: 15);
 const whiteTxt16 = TextStyle(color: whiteColor, fontSize: 16);

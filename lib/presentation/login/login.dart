@@ -40,7 +40,7 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Text(
                         'Login to your account',
-                        style: whiteTxt22,
+                        style: whiteTxt25,
                       ),
                       sbHeight30,
                       CustomTextField(
