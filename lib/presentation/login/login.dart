@@ -9,7 +9,10 @@ import 'package:social_media/presentation/login/widget/or_divider_widget.dart';
 import 'package:social_media/presentation/widgets/custom_text_field.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+
+  final _emailCtrl = TextEditingController();
+  final _passCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,21 +38,24 @@ class LoginPage extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      const Text(
+                      Text(
                         'Login to your account',
                         style: whiteTxt22,
                       ),
                       sbHeight30,
-                      const CustomTextField(
-                        labelText: 'Username or Phone number',
+                      CustomTextField(
+                        labelText: 'Email',
+                        textCtrl: _emailCtrl,
                       ),
                       sbHeight10,
-                      const CustomTextField(
+                      CustomTextField(
                         labelText: 'Password',
+                        textCtrl: _passCtrl,
                       ),
                       sbHeight10,
-                      const CustomBlueButton(
+                      CustomBlueButton(
                         buttonText: 'Login',
+                        buttonUse: loginButtonEnums.login,
                       ),
                       TextButton(
                           onPressed: () {

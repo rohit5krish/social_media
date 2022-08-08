@@ -49,3 +49,6 @@ List<String> messages = [
   'How are you doing? I think  you are doing well, Im hoping to meet you soon lets see if it would be happening.'
 ];
 List<bool> isUser = [true, true, false, true, false, false, true];
+
+// Enums
+enum loginButtonEnums { login, resetPass, signUp }

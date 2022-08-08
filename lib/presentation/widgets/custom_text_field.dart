@@ -4,14 +4,18 @@ import 'package:social_media/core/constants/styles.dart';
 
 class CustomTextField extends StatelessWidget {
   final String labelText;
+  final TextEditingController textCtrl;
   const CustomTextField({
     Key? key,
     required this.labelText,
+    required this.textCtrl,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: textCtrl,
+      style: whiteTxt16,
       decoration: InputDecoration(
           filled: true,
           fillColor: whiteClr24,

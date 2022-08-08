@@ -5,7 +5,10 @@ import 'package:social_media/presentation/widgets/custom_blue_button.dart';
 import 'package:social_media/presentation/widgets/custom_text_field.dart';
 
 class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({Key? key}) : super(key: key);
+  ForgotPassword({Key? key}) : super(key: key);
+
+  final _emailCtrl = TextEditingController();
+  final _otpCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,10 @@ class ForgotPassword extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             sbHeight30,
-            CustomTextField(labelText: 'Phone Number'),
+            CustomTextField(
+              labelText: 'Email',
+              textCtrl: _emailCtrl,
+            ),
             sbHeight10,
             Row(
               children: [
@@ -40,6 +46,7 @@ class ForgotPassword extends StatelessWidget {
                   width: screenSize.width - 150,
                   child: CustomTextField(
                     labelText: 'Enter Otp',
+                    textCtrl: _otpCtrl,
                   ),
                 ),
                 sbWidth20,
@@ -47,7 +54,10 @@ class ForgotPassword extends StatelessWidget {
               ],
             ),
             sbHeight20,
-            CustomBlueButton(buttonText: 'Verify')
+            CustomBlueButton(
+              buttonText: 'Verify',
+              buttonUse: loginButtonEnums.resetPass,
+            )
           ],
         ),
       )),

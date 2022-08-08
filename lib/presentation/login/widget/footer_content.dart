@@ -27,7 +27,7 @@ class FooterSignupContent extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return const SignUp();
+                    return SignUp();
                   }));
                 },
                 child: const Text(

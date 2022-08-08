@@ -4,7 +4,11 @@ import 'package:social_media/core/constants/styles.dart';
 import 'package:social_media/presentation/widgets/custom_text_field.dart';
 
 class EditProfile extends StatelessWidget {
-  const EditProfile({Key? key}) : super(key: key);
+  EditProfile({Key? key}) : super(key: key);
+
+  final _usernameCtrl = TextEditingController();
+  final _nameCtrl = TextEditingController();
+  final _bioCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +42,20 @@ class EditProfile extends StatelessWidget {
               sbHeight10,
               TextButton(onPressed: () {}, child: Text('Change Profile Photo')),
               sbHeight20,
-              CustomTextField(labelText: 'Name'),
+              CustomTextField(
+                labelText: 'Name',
+                textCtrl: _nameCtrl,
+              ),
               sbHeight10,
-              CustomTextField(labelText: 'Username'),
+              CustomTextField(
+                labelText: 'Username',
+                textCtrl: _usernameCtrl,
+              ),
               sbHeight10,
-              CustomTextField(labelText: 'Bio')
+              CustomTextField(
+                labelText: 'Bio',
+                textCtrl: _bioCtrl,
+              )
             ],
           ),
         ),

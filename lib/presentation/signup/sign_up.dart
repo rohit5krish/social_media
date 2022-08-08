@@ -5,7 +5,11 @@ import 'package:social_media/presentation/widgets/custom_blue_button.dart';
 import 'package:social_media/presentation/widgets/custom_text_field.dart';
 
 class SignUp extends StatelessWidget {
-  const SignUp({Key? key}) : super(key: key);
+  SignUp({Key? key}) : super(key: key);
+
+  final _usernameCtrl = TextEditingController();
+  final _emailCtrl = TextEditingController();
+  final _passCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,21 +34,33 @@ class SignUp extends StatelessWidget {
                   style: TextStyle(color: whiteClr60),
                 ),
                 Column(
-                  children: const [
+                  children: [
                     Text(
                       'Create an account',
                       style: whiteTxt22,
                     ),
                     sbHeight30,
-                    CustomTextField(labelText: 'Enter a Username'),
+                    CustomTextField(
+                      labelText: 'Enter a Username',
+                      textCtrl: _usernameCtrl,
+                    ),
                     sbHeight10,
-                    CustomTextField(labelText: 'Phone'),
+                    CustomTextField(
+                      labelText: 'Email',
+                      textCtrl: _emailCtrl,
+                    ),
                     sbHeight10,
-                    CustomTextField(labelText: 'Password'),
+                    CustomTextField(
+                      labelText: 'Password',
+                      textCtrl: _passCtrl,
+                    ),
                     sbHeight10,
-                    CustomTextField(labelText: 'Confirm Password'),
-                    sbHeight10,
-                    CustomBlueButton(buttonText: 'Sign Up'),
+                    CustomBlueButton(
+                        buttonText: 'Sign Up',
+                        buttonUse: loginButtonEnums.signUp,
+                        usernameCtrl: _usernameCtrl,
+                        emailCtrl: _emailCtrl,
+                        passCtrl: _passCtrl),
                   ],
                 ),
                 sbHeight10
