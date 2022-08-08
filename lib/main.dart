@@ -1,10 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/application/profile/profile_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/presentation/splash/splash.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -28,3 +31,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+// implementation platform('com.google.firebase:firebase-bom:30.3.1')

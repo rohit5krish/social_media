@@ -18,9 +18,12 @@ class ForgotPassword extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Reset Password',
-              style: whiteTxt22B,
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Reset Password',
+                style: whiteTxt22B,
+              ),
             ),
             sbHeight10,
             Text(
