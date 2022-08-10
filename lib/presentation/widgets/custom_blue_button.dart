@@ -5,7 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/application/signup/signup_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
-import 'package:social_media/infrastructure/signup/signup_auth.dart';
+import 'package:social_media/infrastructure/auth_methods/auth_methods.dart';
+import 'package:social_media/presentation/home/home.dart';
 import 'package:social_media/presentation/navigation/navigation.dart';
 
 class CustomBlueButton extends StatelessWidget {
@@ -16,7 +17,7 @@ class CustomBlueButton extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final Enum buttonUse;
 
-  CustomBlueButton({
+  const CustomBlueButton({
     required this.buttonText,
     required this.buttonUse,
     required this.formKey,
@@ -35,7 +36,7 @@ class CustomBlueButton extends StatelessWidget {
                 primary: blueClr800,
                 minimumSize: const Size(double.infinity, 45),
                 shape: const StadiumBorder()),
-            onPressed: () => SignUpButtonClicked(state.selectedImage, context),
+            onPressed: () => BlueButtonClicked(state.selectedImage, context),
             child: state.isLoading
                 ? Center(
                     child: CircularProgressIndicator(
@@ -50,12 +51,12 @@ class CustomBlueButton extends StatelessWidget {
     );
   }
 
-  SignUpButtonClicked(Uint8List? profImage, BuildContext context) async {
+  BlueButtonClicked(Uint8List? profImage, BuildContext context) async {
     final isValid = formKey.currentState!.validate();
     if (isValid) {
       if (buttonUse == loginButtonEnums.signUp) {
         BlocProvider.of<SignupBloc>(context).add(UpdateLoading(isLoad: true));
-        String res = await SignUpAuth().SignUpUser(
+        String res = await AuthMethods().SignUpUser(
           username: usernameCtrl!.text,
           email: emailCtrl!.text,
           password: passCtrl!.text,
@@ -71,6 +72,18 @@ class CustomBlueButton extends StatelessWidget {
             emailCtrl!.text.isNotEmpty) {
           showSnackBar(res, context);
         }
+      } else if (buttonUse == loginButtonEnums.login) {
+        BlocProvider.of<SignupBloc>(context).add(UpdateLoading(isLoad: true));
+        String res = await AuthMethods()
+            .LoginUser(email: emailCtrl!.text, password: passCtrl!.text);
+        BlocProvider.of<SignupBloc>(context).add(UpdateLoading(isLoad: false));
+        if (res == "success") {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            return HomePage();
+          }));
+        } else {
+          showSnackBar(res, context);
+        }
       }
     }
   }
@@ -78,7 +91,7 @@ class CustomBlueButton extends StatelessWidget {
 
 showSnackBar(String content, BuildContext context) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    backgroundColor: whiteClr24,
+    backgroundColor: Colors.red[400],
     content: Text(content),
     duration: Duration(seconds: 2),
   ));

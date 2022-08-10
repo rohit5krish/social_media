@@ -38,43 +38,48 @@ class LoginPage extends StatelessWidget {
                     'English(India)',
                     style: TextStyle(color: whiteClr60),
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        'Login to your account',
-                        style: whiteTxt25,
-                      ),
-                      sbHeight30,
-                      CustomTextField(
-                        labelText: 'Email',
-                        textCtrl: _emailCtrl,
-                        formKey: formKey,
-                      ),
-                      sbHeight10,
-                      CustomTextField(
-                        labelText: 'Password',
-                        textCtrl: _passCtrl,
-                        formKey: formKey,
-                      ),
-                      sbHeight10,
-                      CustomBlueButton(
-                        buttonText: 'Login',
-                        buttonUse: loginButtonEnums.login,
-                        formKey: formKey,
-                      ),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) {
-                              return ForgotPassword();
-                            }));
-                          },
-                          child: const Text('Forgot Password?')),
-                      sbHeight10,
-                      const OrDividerWidget(),
-                      sbHeight30,
-                      const GoogleSignInButton()
-                    ],
+                  Form(
+                    key: formKey,
+                    child: Column(
+                      children: [
+                        Text(
+                          'Login to your account',
+                          style: whiteTxt25,
+                        ),
+                        sbHeight30,
+                        CustomTextField(
+                          labelText: 'Email',
+                          textCtrl: _emailCtrl,
+                          formKey: formKey,
+                        ),
+                        sbHeight10,
+                        CustomTextField(
+                          labelText: 'Password',
+                          textCtrl: _passCtrl,
+                          formKey: formKey,
+                        ),
+                        sbHeight10,
+                        CustomBlueButton(
+                          buttonText: 'Login',
+                          buttonUse: loginButtonEnums.login,
+                          formKey: formKey,
+                          emailCtrl: _emailCtrl,
+                          passCtrl: _passCtrl,
+                        ),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (context) {
+                                return ForgotPassword();
+                              }));
+                            },
+                            child: const Text('Forgot Password?')),
+                        sbHeight10,
+                        const OrDividerWidget(),
+                        sbHeight30,
+                        const GoogleSignInButton()
+                      ],
+                    ),
                   ),
                   const FooterSignupContent()
                 ],
