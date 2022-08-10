@@ -13,6 +13,7 @@ class LoginPage extends StatelessWidget {
 
   final _emailCtrl = TextEditingController();
   final _passCtrl = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class LoginPage extends StatelessWidget {
       backgroundColor: blackColor,
       body: InkWell(
         splashFactory: NoSplash.splashFactory,
+        highlightColor: Colors.transparent,
         onTap: () {
           FocusManager.instance.primaryFocus!.unfocus();
         },
@@ -46,16 +48,19 @@ class LoginPage extends StatelessWidget {
                       CustomTextField(
                         labelText: 'Email',
                         textCtrl: _emailCtrl,
+                        formKey: formKey,
                       ),
                       sbHeight10,
                       CustomTextField(
                         labelText: 'Password',
                         textCtrl: _passCtrl,
+                        formKey: formKey,
                       ),
                       sbHeight10,
                       CustomBlueButton(
                         buttonText: 'Login',
                         buttonUse: loginButtonEnums.login,
+                        formKey: formKey,
                       ),
                       TextButton(
                           onPressed: () {

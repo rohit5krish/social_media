@@ -9,6 +9,7 @@ class EditProfile extends StatelessWidget {
   final _usernameCtrl = TextEditingController();
   final _nameCtrl = TextEditingController();
   final _bioCtrl = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +46,19 @@ class EditProfile extends StatelessWidget {
               CustomTextField(
                 labelText: 'Name',
                 textCtrl: _nameCtrl,
+                formKey: formKey,
               ),
               sbHeight10,
               CustomTextField(
                 labelText: 'Username',
                 textCtrl: _usernameCtrl,
+                formKey: formKey,
               ),
               sbHeight10,
               CustomTextField(
                 labelText: 'Bio',
                 textCtrl: _bioCtrl,
+                formKey: formKey,
               )
             ],
           ),

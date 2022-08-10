@@ -10,7 +10,11 @@ part 'signup_bloc.freezed.dart';
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
   SignupBloc() : super(SignupState.initial()) {
     on<UpdateImage>((event, emit) {
-      emit(SignupState(selectedImage: event.image));
+      emit(state.copyWith(selectedImage: event.image));
+    });
+
+    on<UpdateLoading>((event, emit) {
+      emit(state.copyWith(isLoading: event.isLoad));
     });
   }
 }

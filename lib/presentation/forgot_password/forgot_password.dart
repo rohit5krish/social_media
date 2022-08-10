@@ -9,58 +9,69 @@ class ForgotPassword extends StatelessWidget {
 
   final _emailCtrl = TextEditingController();
   final _otpCtrl = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Reset Password',
-                style: whiteTxt22B,
-              ),
-            ),
-            sbHeight10,
-            Text(
-              'Enter the phone number registered with your account and verify to set new password.',
-              style: txtFormStyle,
-              textAlign: TextAlign.center,
-            ),
-            sbHeight30,
-            CustomTextField(
-              labelText: 'Email',
-              textCtrl: _emailCtrl,
-            ),
-            sbHeight10,
-            Row(
-              children: [
-                SizedBox(
-                  width: screenSize.width - 150,
-                  child: CustomTextField(
-                    labelText: 'Enter Otp',
-                    textCtrl: _otpCtrl,
-                  ),
+      body: InkWell(
+        splashFactory: NoSplash.splashFactory,
+        highlightColor: Colors.transparent,
+        onTap: () {
+          FocusManager.instance.primaryFocus!.unfocus();
+        },
+        child: SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Reset Password',
+                  style: whiteTxt22B,
                 ),
-                sbWidth20,
-                BlueBorderButton(buttonTxt: 'OTP')
-              ],
-            ),
-            sbHeight20,
-            CustomBlueButton(
-              buttonText: 'Verify',
-              buttonUse: loginButtonEnums.resetPass,
-            )
-          ],
-        ),
-      )),
+              ),
+              sbHeight10,
+              Text(
+                'Enter the phone number registered with your account and verify to set new password.',
+                style: txtFormStyle,
+                textAlign: TextAlign.center,
+              ),
+              sbHeight30,
+              CustomTextField(
+                labelText: 'Email',
+                textCtrl: _emailCtrl,
+                formKey: formKey,
+              ),
+              sbHeight10,
+              Row(
+                children: [
+                  SizedBox(
+                    width: screenSize.width - 150,
+                    child: CustomTextField(
+                      labelText: 'Enter Otp',
+                      textCtrl: _otpCtrl,
+                      formKey: formKey,
+                    ),
+                  ),
+                  sbWidth20,
+                  BlueBorderButton(buttonTxt: 'OTP')
+                ],
+              ),
+              sbHeight20,
+              CustomBlueButton(
+                buttonText: 'Verify',
+                buttonUse: loginButtonEnums.resetPass,
+                formKey: formKey,
+              )
+            ],
+          ),
+        )),
+      ),
     );
   }
 }

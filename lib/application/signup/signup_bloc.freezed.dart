@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SignupEvent {
-  Uint8List get image => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List image) updateImage,
+    required TResult Function(Uint8List? image) updateImage,
+    required TResult Function(bool isLoad) updateLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List image)? updateImage,
+    TResult Function(Uint8List? image)? updateImage,
+    TResult Function(bool isLoad)? updateLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List image)? updateImage,
+    TResult Function(Uint8List? image)? updateImage,
+    TResult Function(bool isLoad)? updateLoading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateImage value) updateImage,
+    required TResult Function(UpdateLoading value) updateLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
+    TResult Function(UpdateLoading value)? updateLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
+    TResult Function(UpdateLoading value)? updateLoading,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SignupEventCopyWith<SignupEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,7 +61,6 @@ abstract class $SignupEventCopyWith<$Res> {
   factory $SignupEventCopyWith(
           SignupEvent value, $Res Function(SignupEvent) then) =
       _$SignupEventCopyWithImpl<$Res>;
-  $Res call({Uint8List image});
 }
 
 /// @nodoc
@@ -70,28 +70,14 @@ class _$SignupEventCopyWithImpl<$Res> implements $SignupEventCopyWith<$Res> {
   final SignupEvent _value;
   // ignore: unused_field
   final $Res Function(SignupEvent) _then;
-
-  @override
-  $Res call({
-    Object? image = freezed,
-  }) {
-    return _then(_value.copyWith(
-      image: image == freezed
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as Uint8List,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$UpdateImageCopyWith<$Res>
-    implements $SignupEventCopyWith<$Res> {
+abstract class _$$UpdateImageCopyWith<$Res> {
   factory _$$UpdateImageCopyWith(
           _$UpdateImage value, $Res Function(_$UpdateImage) then) =
       __$$UpdateImageCopyWithImpl<$Res>;
-  @override
-  $Res call({Uint8List image});
+  $Res call({Uint8List? image});
 }
 
 /// @nodoc
@@ -112,7 +98,7 @@ class __$$UpdateImageCopyWithImpl<$Res> extends _$SignupEventCopyWithImpl<$Res>
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as Uint8List,
+              as Uint8List?,
     ));
   }
 }
@@ -120,10 +106,10 @@ class __$$UpdateImageCopyWithImpl<$Res> extends _$SignupEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdateImage implements UpdateImage {
-  const _$UpdateImage({required this.image});
+  const _$UpdateImage({this.image});
 
   @override
-  final Uint8List image;
+  final Uint8List? image;
 
   @override
   String toString() {
@@ -150,7 +136,8 @@ class _$UpdateImage implements UpdateImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Uint8List image) updateImage,
+    required TResult Function(Uint8List? image) updateImage,
+    required TResult Function(bool isLoad) updateLoading,
   }) {
     return updateImage(image);
   }
@@ -158,7 +145,8 @@ class _$UpdateImage implements UpdateImage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Uint8List image)? updateImage,
+    TResult Function(Uint8List? image)? updateImage,
+    TResult Function(bool isLoad)? updateLoading,
   }) {
     return updateImage?.call(image);
   }
@@ -166,7 +154,8 @@ class _$UpdateImage implements UpdateImage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Uint8List image)? updateImage,
+    TResult Function(Uint8List? image)? updateImage,
+    TResult Function(bool isLoad)? updateLoading,
     required TResult orElse(),
   }) {
     if (updateImage != null) {
@@ -179,6 +168,7 @@ class _$UpdateImage implements UpdateImage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateImage value) updateImage,
+    required TResult Function(UpdateLoading value) updateLoading,
   }) {
     return updateImage(this);
   }
@@ -187,6 +177,7 @@ class _$UpdateImage implements UpdateImage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
+    TResult Function(UpdateLoading value)? updateLoading,
   }) {
     return updateImage?.call(this);
   }
@@ -195,6 +186,7 @@ class _$UpdateImage implements UpdateImage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
+    TResult Function(UpdateLoading value)? updateLoading,
     required TResult orElse(),
   }) {
     if (updateImage != null) {
@@ -205,18 +197,151 @@ class _$UpdateImage implements UpdateImage {
 }
 
 abstract class UpdateImage implements SignupEvent {
-  const factory UpdateImage({required final Uint8List image}) = _$UpdateImage;
+  const factory UpdateImage({final Uint8List? image}) = _$UpdateImage;
 
-  @override
-  Uint8List get image;
-  @override
+  Uint8List? get image;
   @JsonKey(ignore: true)
   _$$UpdateImageCopyWith<_$UpdateImage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$UpdateLoadingCopyWith<$Res> {
+  factory _$$UpdateLoadingCopyWith(
+          _$UpdateLoading value, $Res Function(_$UpdateLoading) then) =
+      __$$UpdateLoadingCopyWithImpl<$Res>;
+  $Res call({bool isLoad});
+}
+
+/// @nodoc
+class __$$UpdateLoadingCopyWithImpl<$Res>
+    extends _$SignupEventCopyWithImpl<$Res>
+    implements _$$UpdateLoadingCopyWith<$Res> {
+  __$$UpdateLoadingCopyWithImpl(
+      _$UpdateLoading _value, $Res Function(_$UpdateLoading) _then)
+      : super(_value, (v) => _then(v as _$UpdateLoading));
+
+  @override
+  _$UpdateLoading get _value => super._value as _$UpdateLoading;
+
+  @override
+  $Res call({
+    Object? isLoad = freezed,
+  }) {
+    return _then(_$UpdateLoading(
+      isLoad: isLoad == freezed
+          ? _value.isLoad
+          : isLoad // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateLoading implements UpdateLoading {
+  const _$UpdateLoading({required this.isLoad});
+
+  @override
+  final bool isLoad;
+
+  @override
+  String toString() {
+    return 'SignupEvent.updateLoading(isLoad: $isLoad)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateLoading &&
+            const DeepCollectionEquality().equals(other.isLoad, isLoad));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(isLoad));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$UpdateLoadingCopyWith<_$UpdateLoading> get copyWith =>
+      __$$UpdateLoadingCopyWithImpl<_$UpdateLoading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Uint8List? image) updateImage,
+    required TResult Function(bool isLoad) updateLoading,
+  }) {
+    return updateLoading(isLoad);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Uint8List? image)? updateImage,
+    TResult Function(bool isLoad)? updateLoading,
+  }) {
+    return updateLoading?.call(isLoad);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Uint8List? image)? updateImage,
+    TResult Function(bool isLoad)? updateLoading,
+    required TResult orElse(),
+  }) {
+    if (updateLoading != null) {
+      return updateLoading(isLoad);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdateImage value) updateImage,
+    required TResult Function(UpdateLoading value) updateLoading,
+  }) {
+    return updateLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UpdateImage value)? updateImage,
+    TResult Function(UpdateLoading value)? updateLoading,
+  }) {
+    return updateLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdateImage value)? updateImage,
+    TResult Function(UpdateLoading value)? updateLoading,
+    required TResult orElse(),
+  }) {
+    if (updateLoading != null) {
+      return updateLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateLoading implements SignupEvent {
+  const factory UpdateLoading({required final bool isLoad}) = _$UpdateLoading;
+
+  bool get isLoad;
+  @JsonKey(ignore: true)
+  _$$UpdateLoadingCopyWith<_$UpdateLoading> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SignupState {
+  bool get isLoading => throw _privateConstructorUsedError;
   Uint8List? get selectedImage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -229,7 +354,7 @@ abstract class $SignupStateCopyWith<$Res> {
   factory $SignupStateCopyWith(
           SignupState value, $Res Function(SignupState) then) =
       _$SignupStateCopyWithImpl<$Res>;
-  $Res call({Uint8List? selectedImage});
+  $Res call({bool isLoading, Uint8List? selectedImage});
 }
 
 /// @nodoc
@@ -242,9 +367,14 @@ class _$SignupStateCopyWithImpl<$Res> implements $SignupStateCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? isLoading = freezed,
     Object? selectedImage = freezed,
   }) {
     return _then(_value.copyWith(
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       selectedImage: selectedImage == freezed
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
@@ -260,7 +390,7 @@ abstract class _$$_SignupStateCopyWith<$Res>
           _$_SignupState value, $Res Function(_$_SignupState) then) =
       __$$_SignupStateCopyWithImpl<$Res>;
   @override
-  $Res call({Uint8List? selectedImage});
+  $Res call({bool isLoading, Uint8List? selectedImage});
 }
 
 /// @nodoc
@@ -275,9 +405,14 @@ class __$$_SignupStateCopyWithImpl<$Res> extends _$SignupStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? isLoading = freezed,
     Object? selectedImage = freezed,
   }) {
     return _then(_$_SignupState(
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       selectedImage: selectedImage == freezed
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
@@ -289,14 +424,16 @@ class __$$_SignupStateCopyWithImpl<$Res> extends _$SignupStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SignupState implements _SignupState {
-  const _$_SignupState({this.selectedImage});
+  const _$_SignupState({required this.isLoading, this.selectedImage});
 
+  @override
+  final bool isLoading;
   @override
   final Uint8List? selectedImage;
 
   @override
   String toString() {
-    return 'SignupState(selectedImage: $selectedImage)';
+    return 'SignupState(isLoading: $isLoading, selectedImage: $selectedImage)';
   }
 
   @override
@@ -304,13 +441,16 @@ class _$_SignupState implements _SignupState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SignupState &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other.selectedImage, selectedImage));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(selectedImage));
+      runtimeType,
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(selectedImage));
 
   @JsonKey(ignore: true)
   @override
@@ -319,8 +459,12 @@ class _$_SignupState implements _SignupState {
 }
 
 abstract class _SignupState implements SignupState {
-  const factory _SignupState({final Uint8List? selectedImage}) = _$_SignupState;
+  const factory _SignupState(
+      {required final bool isLoading,
+      final Uint8List? selectedImage}) = _$_SignupState;
 
+  @override
+  bool get isLoading;
   @override
   Uint8List? get selectedImage;
   @override

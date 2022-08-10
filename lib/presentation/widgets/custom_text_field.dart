@@ -5,10 +5,12 @@ import 'package:social_media/core/constants/styles.dart';
 class CustomTextField extends StatelessWidget {
   final String labelText;
   final TextEditingController textCtrl;
+  final GlobalKey<FormState> formKey;
   const CustomTextField({
     Key? key,
     required this.labelText,
     required this.textCtrl,
+    required this.formKey,
   }) : super(key: key);
 
   @override
@@ -16,6 +18,18 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       controller: textCtrl,
       style: whiteTxt16,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          formKey.currentState!.validate();
+        }
+      },
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Enter $labelText';
+        } else {
+          return null;
+        }
+      },
       decoration: InputDecoration(
           filled: true,
           fillColor: whiteClr24,
