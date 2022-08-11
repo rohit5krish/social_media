@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/infrastructure/auth_methods/auth_methods.dart';
 import 'package:social_media/presentation/widgets/post_widget.dart';
 import 'package:social_media/presentation/search/search.dart';
 
@@ -15,6 +16,11 @@ class HomePage extends StatelessWidget {
         toolbarHeight: 70,
         backgroundColor: blackColor,
         automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              AuthMethods().SignOutUser();
+            },
+            icon: Icon(Icons.logout, color: whiteColor)),
         title: const Text(
           'Home',
           style: whiteTxt22,

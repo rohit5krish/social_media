@@ -8,4 +8,5 @@ class SignupEvent with _$SignupEvent {
   const factory SignupEvent.updateLoading({
     required bool isLoad,
   }) = UpdateLoading;
+  const factory SignupEvent.googleLogin() = GoogleLogin;
 }

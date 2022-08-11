@@ -20,18 +20,21 @@ mixin _$SignupEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Uint8List? image) updateImage,
     required TResult Function(bool isLoad) updateLoading,
+    required TResult Function() googleLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Uint8List? image)? updateImage,
     TResult Function(bool isLoad)? updateLoading,
+    TResult Function()? googleLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Uint8List? image)? updateImage,
     TResult Function(bool isLoad)? updateLoading,
+    TResult Function()? googleLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$SignupEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateImage value) updateImage,
     required TResult Function(UpdateLoading value) updateLoading,
+    required TResult Function(GoogleLogin value) googleLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
     TResult Function(UpdateLoading value)? updateLoading,
+    TResult Function(GoogleLogin value)? googleLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
     TResult Function(UpdateLoading value)? updateLoading,
+    TResult Function(GoogleLogin value)? googleLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,6 +144,7 @@ class _$UpdateImage implements UpdateImage {
   TResult when<TResult extends Object?>({
     required TResult Function(Uint8List? image) updateImage,
     required TResult Function(bool isLoad) updateLoading,
+    required TResult Function() googleLogin,
   }) {
     return updateImage(image);
   }
@@ -147,6 +154,7 @@ class _$UpdateImage implements UpdateImage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Uint8List? image)? updateImage,
     TResult Function(bool isLoad)? updateLoading,
+    TResult Function()? googleLogin,
   }) {
     return updateImage?.call(image);
   }
@@ -156,6 +164,7 @@ class _$UpdateImage implements UpdateImage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Uint8List? image)? updateImage,
     TResult Function(bool isLoad)? updateLoading,
+    TResult Function()? googleLogin,
     required TResult orElse(),
   }) {
     if (updateImage != null) {
@@ -169,6 +178,7 @@ class _$UpdateImage implements UpdateImage {
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateImage value) updateImage,
     required TResult Function(UpdateLoading value) updateLoading,
+    required TResult Function(GoogleLogin value) googleLogin,
   }) {
     return updateImage(this);
   }
@@ -178,6 +188,7 @@ class _$UpdateImage implements UpdateImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
     TResult Function(UpdateLoading value)? updateLoading,
+    TResult Function(GoogleLogin value)? googleLogin,
   }) {
     return updateImage?.call(this);
   }
@@ -187,6 +198,7 @@ class _$UpdateImage implements UpdateImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
     TResult Function(UpdateLoading value)? updateLoading,
+    TResult Function(GoogleLogin value)? googleLogin,
     required TResult orElse(),
   }) {
     if (updateImage != null) {
@@ -272,6 +284,7 @@ class _$UpdateLoading implements UpdateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function(Uint8List? image) updateImage,
     required TResult Function(bool isLoad) updateLoading,
+    required TResult Function() googleLogin,
   }) {
     return updateLoading(isLoad);
   }
@@ -281,6 +294,7 @@ class _$UpdateLoading implements UpdateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Uint8List? image)? updateImage,
     TResult Function(bool isLoad)? updateLoading,
+    TResult Function()? googleLogin,
   }) {
     return updateLoading?.call(isLoad);
   }
@@ -290,6 +304,7 @@ class _$UpdateLoading implements UpdateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Uint8List? image)? updateImage,
     TResult Function(bool isLoad)? updateLoading,
+    TResult Function()? googleLogin,
     required TResult orElse(),
   }) {
     if (updateLoading != null) {
@@ -303,6 +318,7 @@ class _$UpdateLoading implements UpdateLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(UpdateImage value) updateImage,
     required TResult Function(UpdateLoading value) updateLoading,
+    required TResult Function(GoogleLogin value) googleLogin,
   }) {
     return updateLoading(this);
   }
@@ -312,6 +328,7 @@ class _$UpdateLoading implements UpdateLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
     TResult Function(UpdateLoading value)? updateLoading,
+    TResult Function(GoogleLogin value)? googleLogin,
   }) {
     return updateLoading?.call(this);
   }
@@ -321,6 +338,7 @@ class _$UpdateLoading implements UpdateLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdateImage value)? updateImage,
     TResult Function(UpdateLoading value)? updateLoading,
+    TResult Function(GoogleLogin value)? googleLogin,
     required TResult orElse(),
   }) {
     if (updateLoading != null) {
@@ -340,8 +358,119 @@ abstract class UpdateLoading implements SignupEvent {
 }
 
 /// @nodoc
+abstract class _$$GoogleLoginCopyWith<$Res> {
+  factory _$$GoogleLoginCopyWith(
+          _$GoogleLogin value, $Res Function(_$GoogleLogin) then) =
+      __$$GoogleLoginCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GoogleLoginCopyWithImpl<$Res> extends _$SignupEventCopyWithImpl<$Res>
+    implements _$$GoogleLoginCopyWith<$Res> {
+  __$$GoogleLoginCopyWithImpl(
+      _$GoogleLogin _value, $Res Function(_$GoogleLogin) _then)
+      : super(_value, (v) => _then(v as _$GoogleLogin));
+
+  @override
+  _$GoogleLogin get _value => super._value as _$GoogleLogin;
+}
+
+/// @nodoc
+
+class _$GoogleLogin implements GoogleLogin {
+  const _$GoogleLogin();
+
+  @override
+  String toString() {
+    return 'SignupEvent.googleLogin()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GoogleLogin);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Uint8List? image) updateImage,
+    required TResult Function(bool isLoad) updateLoading,
+    required TResult Function() googleLogin,
+  }) {
+    return googleLogin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Uint8List? image)? updateImage,
+    TResult Function(bool isLoad)? updateLoading,
+    TResult Function()? googleLogin,
+  }) {
+    return googleLogin?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Uint8List? image)? updateImage,
+    TResult Function(bool isLoad)? updateLoading,
+    TResult Function()? googleLogin,
+    required TResult orElse(),
+  }) {
+    if (googleLogin != null) {
+      return googleLogin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdateImage value) updateImage,
+    required TResult Function(UpdateLoading value) updateLoading,
+    required TResult Function(GoogleLogin value) googleLogin,
+  }) {
+    return googleLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UpdateImage value)? updateImage,
+    TResult Function(UpdateLoading value)? updateLoading,
+    TResult Function(GoogleLogin value)? googleLogin,
+  }) {
+    return googleLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdateImage value)? updateImage,
+    TResult Function(UpdateLoading value)? updateLoading,
+    TResult Function(GoogleLogin value)? googleLogin,
+    required TResult orElse(),
+  }) {
+    if (googleLogin != null) {
+      return googleLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GoogleLogin implements SignupEvent {
+  const factory GoogleLogin() = _$GoogleLogin;
+}
+
+/// @nodoc
 mixin _$SignupState {
   bool get isLoading => throw _privateConstructorUsedError;
+  UserCredential? get usrCred => throw _privateConstructorUsedError;
   Uint8List? get selectedImage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -354,7 +483,8 @@ abstract class $SignupStateCopyWith<$Res> {
   factory $SignupStateCopyWith(
           SignupState value, $Res Function(SignupState) then) =
       _$SignupStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, Uint8List? selectedImage});
+  $Res call(
+      {bool isLoading, UserCredential? usrCred, Uint8List? selectedImage});
 }
 
 /// @nodoc
@@ -368,6 +498,7 @@ class _$SignupStateCopyWithImpl<$Res> implements $SignupStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? usrCred = freezed,
     Object? selectedImage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -375,6 +506,10 @@ class _$SignupStateCopyWithImpl<$Res> implements $SignupStateCopyWith<$Res> {
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      usrCred: usrCred == freezed
+          ? _value.usrCred
+          : usrCred // ignore: cast_nullable_to_non_nullable
+              as UserCredential?,
       selectedImage: selectedImage == freezed
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
@@ -390,7 +525,8 @@ abstract class _$$_SignupStateCopyWith<$Res>
           _$_SignupState value, $Res Function(_$_SignupState) then) =
       __$$_SignupStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, Uint8List? selectedImage});
+  $Res call(
+      {bool isLoading, UserCredential? usrCred, Uint8List? selectedImage});
 }
 
 /// @nodoc
@@ -406,6 +542,7 @@ class __$$_SignupStateCopyWithImpl<$Res> extends _$SignupStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? usrCred = freezed,
     Object? selectedImage = freezed,
   }) {
     return _then(_$_SignupState(
@@ -413,6 +550,10 @@ class __$$_SignupStateCopyWithImpl<$Res> extends _$SignupStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      usrCred: usrCred == freezed
+          ? _value.usrCred
+          : usrCred // ignore: cast_nullable_to_non_nullable
+              as UserCredential?,
       selectedImage: selectedImage == freezed
           ? _value.selectedImage
           : selectedImage // ignore: cast_nullable_to_non_nullable
@@ -424,16 +565,19 @@ class __$$_SignupStateCopyWithImpl<$Res> extends _$SignupStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SignupState implements _SignupState {
-  const _$_SignupState({required this.isLoading, this.selectedImage});
+  const _$_SignupState(
+      {required this.isLoading, this.usrCred, this.selectedImage});
 
   @override
   final bool isLoading;
+  @override
+  final UserCredential? usrCred;
   @override
   final Uint8List? selectedImage;
 
   @override
   String toString() {
-    return 'SignupState(isLoading: $isLoading, selectedImage: $selectedImage)';
+    return 'SignupState(isLoading: $isLoading, usrCred: $usrCred, selectedImage: $selectedImage)';
   }
 
   @override
@@ -442,6 +586,7 @@ class _$_SignupState implements _SignupState {
         (other.runtimeType == runtimeType &&
             other is _$_SignupState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(other.usrCred, usrCred) &&
             const DeepCollectionEquality()
                 .equals(other.selectedImage, selectedImage));
   }
@@ -450,6 +595,7 @@ class _$_SignupState implements _SignupState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(usrCred),
       const DeepCollectionEquality().hash(selectedImage));
 
   @JsonKey(ignore: true)
@@ -461,10 +607,13 @@ class _$_SignupState implements _SignupState {
 abstract class _SignupState implements SignupState {
   const factory _SignupState(
       {required final bool isLoading,
+      final UserCredential? usrCred,
       final Uint8List? selectedImage}) = _$_SignupState;
 
   @override
   bool get isLoading;
+  @override
+  UserCredential? get usrCred;
   @override
   Uint8List? get selectedImage;
   @override

@@ -64,7 +64,8 @@ class CustomBlueButton extends StatelessWidget {
         );
         BlocProvider.of<SignupBloc>(context).add(UpdateLoading(isLoad: false));
         if (res == 'success') {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          Navigator.of(context)
+              .pushReplacement(MaterialPageRoute(builder: (context) {
             return NavigationPage();
           }));
         } else if (usernameCtrl!.text.isNotEmpty &&
@@ -78,8 +79,9 @@ class CustomBlueButton extends StatelessWidget {
             .LoginUser(email: emailCtrl!.text, password: passCtrl!.text);
         BlocProvider.of<SignupBloc>(context).add(UpdateLoading(isLoad: false));
         if (res == "success") {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            return HomePage();
+          Navigator.of(context)
+              .pushReplacement(MaterialPageRoute(builder: (context) {
+            return NavigationPage();
           }));
         } else {
           showSnackBar(res, context);

@@ -17,6 +17,7 @@ class SignUp extends StatelessWidget {
   final _passCtrl = TextEditingController();
   var formKey = GlobalKey<FormState>();
   bool isDefaultDp = true;
+  var tempImage;
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +59,15 @@ class SignUp extends StatelessWidget {
                           style: whiteTxt25,
                         ),
                         sbHeight20,
-                        BlocBuilder<SignupBloc, SignupState>(
-                          builder: (context, state) {
-                            return Stack(
-                              children: [
-                                isDefaultDp
+                        Stack(
+                          children: [
+                            BlocBuilder<SignupBloc, SignupState>(
+                              builder: (context, state) {
+                                if (!isDefaultDp &&
+                                    state.selectedImage != null) {
+                                  tempImage = state.selectedImage;
+                                }
+                                return isDefaultDp
                                     ? CircleAvatar(
                                         radius: 60,
                                         backgroundImage: NetworkImage(
@@ -70,29 +75,27 @@ class SignUp extends StatelessWidget {
                                       )
                                     : CircleAvatar(
                                         radius: 60,
-                                        backgroundImage:
-                                            MemoryImage(state.selectedImage!),
-                                      ),
-                                Positioned(
-                                    bottom: 0,
-                                    right: 0,
-                                    child: CircleAvatar(
-                                      backgroundColor: blueClr800,
-                                      child: IconButton(
-                                          padding: EdgeInsets.zero,
-                                          onPressed: () {
-                                            isDefaultDp =
-                                                addProfileChoice(context);
-                                          },
-                                          icon: Icon(
-                                            Icons.camera_alt_outlined,
-                                            size: 28,
-                                            color: whiteColor,
-                                          )),
-                                    ))
-                              ],
-                            );
-                          },
+                                        backgroundImage: MemoryImage(tempImage),
+                                      );
+                              },
+                            ),
+                            Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: CircleAvatar(
+                                  backgroundColor: blueClr800,
+                                  child: IconButton(
+                                      padding: EdgeInsets.zero,
+                                      onPressed: () {
+                                        isDefaultDp = addProfileChoice(context);
+                                      },
+                                      icon: Icon(
+                                        Icons.camera_alt_outlined,
+                                        size: 28,
+                                        color: whiteColor,
+                                      )),
+                                ))
+                          ],
                         ),
                         sbHeight20,
                         CustomTextField(
