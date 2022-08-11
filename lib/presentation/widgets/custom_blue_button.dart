@@ -68,6 +68,9 @@ class CustomBlueButton extends StatelessWidget {
               .pushReplacement(MaterialPageRoute(builder: (context) {
             return NavigationPage();
           }));
+          usernameCtrl!.clear();
+          passCtrl!.clear();
+          emailCtrl!.clear();
         } else if (usernameCtrl!.text.isNotEmpty &&
             passCtrl!.text.isNotEmpty &&
             emailCtrl!.text.isNotEmpty) {
@@ -83,6 +86,8 @@ class CustomBlueButton extends StatelessWidget {
               .pushReplacement(MaterialPageRoute(builder: (context) {
             return NavigationPage();
           }));
+          emailCtrl!.clear();
+          passCtrl!.clear();
         } else {
           showSnackBar(res, context);
         }
