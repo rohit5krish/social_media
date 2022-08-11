@@ -19,19 +19,19 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       emit(state.copyWith(isLoading: event.isLoad));
     });
 
-    on<GoogleLogin>((event, emit) async {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      if (googleUser != null) {
-        final GoogleSignInAuthentication googleAuth =
-            await googleUser.authentication;
-        final credential = GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
-          idToken: googleAuth.idToken,
-        );
-        emit(state.copyWith(
-            usrCred:
-                await FirebaseAuth.instance.signInWithCredential(credential)));
-      }
-    });
+    // on<GoogleLogin>((event, emit) async {
+    //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    //   if (googleUser != null) {
+    //     final GoogleSignInAuthentication googleAuth =
+    //         await googleUser.authentication;
+    //     final credential = GoogleAuthProvider.credential(
+    //       accessToken: googleAuth.accessToken,
+    //       idToken: googleAuth.idToken,
+    //     );
+    //     emit(state.copyWith(
+    //         usrCred:
+    //             await FirebaseAuth.instance.signInWithCredential(credential)));
+    //   }
+    // });
   }
 }

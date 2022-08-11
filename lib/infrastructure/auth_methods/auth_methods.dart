@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:social_media/infrastructure/storage_methods/storage_methods.dart';
 
 class AuthMethods {
@@ -77,5 +78,18 @@ class AuthMethods {
 
   Future<void> SignOutUser() async {
     await _auth.signOut();
+  }
+
+  Future<void> GoogleLogin() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    if (googleUser != null) {
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      await _auth.signInWithCredential(credential);
+    }
   }
 }

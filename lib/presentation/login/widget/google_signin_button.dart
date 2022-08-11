@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/application/signup/signup_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/infrastructure/auth_methods/auth_methods.dart';
 
 class GoogleSignInButton extends StatelessWidget {
   const GoogleSignInButton({
@@ -12,8 +13,9 @@ class GoogleSignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        BlocProvider.of<SignupBloc>(context).add(GoogleLogin());
+      onTap: () async {
+        // BlocProvider.of<SignupBloc>(context).add(GoogleLogin());
+        await AuthMethods().GoogleLogin();
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
