@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/domain/login/login_button_click.dart';
 import 'package:social_media/presentation/forgot_password/forgot_password.dart';
 import 'package:social_media/presentation/home/home.dart';
 import 'package:social_media/presentation/login/widget/footer_content.dart';
@@ -76,10 +77,14 @@ class LoginPage extends StatelessWidget {
                                 sbHeight10,
                                 CustomBlueButton(
                                   buttonText: 'Login',
-                                  buttonUse: loginButtonEnums.login,
                                   formKey: formKey,
-                                  emailCtrl: _emailCtrl,
-                                  passCtrl: _passCtrl,
+                                  onButtonClick: () async {
+                                    return await LoginButtonClicked(
+                                        context: context,
+                                        formKey: formKey,
+                                        email: _emailCtrl.text,
+                                        password: _passCtrl.text);
+                                  },
                                 ),
                                 TextButton(
                                     onPressed: () {
