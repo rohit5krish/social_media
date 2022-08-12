@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:email_auth/email_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:social_media/infrastructure/storage_methods/storage_methods.dart';
@@ -8,7 +9,9 @@ import 'package:social_media/infrastructure/storage_methods/storage_methods.dart
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  EmailAuth emailAuth = EmailAuth(sessionName: "Connect App");
   String resp = 'Unknown Error';
+
 // Sign Up User
   Future<String> SignUpUser({
     required String username,
@@ -39,7 +42,13 @@ class AuthMethods {
           'following': [],
           'profilePic': profileUrl,
         });
-        resp = "success";
+        bool isOtpSend =
+            await emailAuth.sendOtp(recipientMail: email, otpLength: 4);
+        if (isOtpSend) {
+          resp = "success";
+        } else {
+          return 'Error Occured.Please try again later.';
+        }
       }
     } on FirebaseAuthException catch (err) {
       resp = err.message.toString();
@@ -76,10 +85,12 @@ class AuthMethods {
     return resp;
   }
 
+// Signout User
   Future<void> SignOutUser() async {
     await _auth.signOut();
   }
 
+// Google Login Method
   Future<void> GoogleLogin() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
     if (googleUser != null) {
@@ -91,5 +102,34 @@ class AuthMethods {
       );
       await _auth.signInWithCredential(credential);
     }
+  }
+
+// Forgot Pass Otp Sending
+  Future<String> ForgotPassword(String email) async {
+    try {
+      List<String> result = await _auth.fetchSignInMethodsForEmail(email);
+
+      if (!result.contains('password')) {
+        return 'No accounts linked with this email.';
+      }
+      await _auth.sendPasswordResetEmail(email: email);
+      return 'Password reset link sent to email.';
+    } on FirebaseAuthException catch (error) {
+      return error.message.toString();
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+  // Verify OTP
+  Future<bool> VerifyOtp(String email, String otp) async {
+    bool isVerified = emailAuth.validateOtp(recipientMail: email, userOtp: otp);
+    return isVerified;
+  }
+
+  // Delete User
+  Future<void> DeleteUser() async {
+    User? _usr = _auth.currentUser;
+    await _usr!.delete();
   }
 }

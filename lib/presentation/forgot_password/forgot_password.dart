@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/domain/forgot_password/button_click.dart';
 import 'package:social_media/infrastructure/auth_methods/auth_methods.dart';
 import 'package:social_media/presentation/forgot_password/otp_page.dart';
 import 'package:social_media/presentation/widgets/blue_border_button.dart';
 import 'package:social_media/presentation/widgets/custom_blue_button.dart';
 import 'package:social_media/presentation/widgets/custom_text_field.dart';
+import 'package:social_media/presentation/widgets/snackbar.dart';
 
 class ForgotPassword extends StatelessWidget {
   ForgotPassword({Key? key}) : super(key: key);
@@ -26,39 +28,38 @@ class ForgotPassword extends StatelessWidget {
         child: SafeArea(
             child: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Reset Password',
-                style: whiteTxt22B,
-              ),
-              sbHeight10,
-              Text(
-                'Enter the email address registered with your account and verify the OTP to reset the password.',
-                style: txtFormStyle,
-                textAlign: TextAlign.center,
-              ),
-              sbHeight30,
-              CustomTextField(
-                labelText: 'Email',
-                textCtrl: _emailCtrl,
-                formKey: formKey,
-              ),
-              sbHeight20,
-              CustomBlueButton(
-                buttonText: 'Submit',
-                formKey: formKey,
-                onButtonClick: () async {
-                  // bool isEmailValid =
-                  //     await AuthMethods().ForgotPass(_emailCtrl.text);
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return OtpPage();
-                  }));
-                },
-              )
-            ],
+          child: Form(
+            key: formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Reset Password',
+                  style: whiteTxt22B,
+                ),
+                sbHeight10,
+                Text(
+                  'Enter the email address registered with your account and verify the OTP to reset the password.',
+                  style: txtFormStyle,
+                  textAlign: TextAlign.center,
+                ),
+                sbHeight30,
+                CustomTextField(
+                  labelText: 'Email',
+                  textCtrl: _emailCtrl,
+                  formKey: formKey,
+                ),
+                sbHeight20,
+                CustomBlueButton(
+                  buttonText: 'Submit',
+                  formKey: formKey,
+                  onButtonClick: () async {
+                    await ForgotPassButtonClick(
+                        context, _emailCtrl.text, formKey);
+                  },
+                )
+              ],
+            ),
           ),
         )),
       ),
