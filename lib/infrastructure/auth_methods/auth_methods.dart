@@ -42,16 +42,25 @@ class AuthMethods {
           'following': [],
           'profilePic': profileUrl,
         });
-        bool isOtpSend =
-            await emailAuth.sendOtp(recipientMail: email, otpLength: 4);
-        if (isOtpSend) {
-          resp = "success";
-        } else {
-          return 'Error Occured.Please try again later.';
-        }
+        resp = 'success';
       }
     } on FirebaseAuthException catch (err) {
       resp = err.message.toString();
+    } catch (e) {
+      resp = e.toString();
+    }
+    return resp;
+  }
+
+  Future<String> sendOtp({required String email}) async {
+    try {
+      bool isOtpSend =
+          await emailAuth.sendOtp(recipientMail: email, otpLength: 4);
+      if (isOtpSend) {
+        resp = "success";
+      } else {
+        return 'Error Occured.Please try again later.';
+      }
     } catch (e) {
       resp = e.toString();
     }
