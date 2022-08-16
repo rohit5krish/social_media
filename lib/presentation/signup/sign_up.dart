@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/application/signup/signup_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
-import 'package:social_media/domain/signup/signup_button.dart';
+import 'package:social_media/presentation/signup/functionalities/signup_button.dart';
 import 'package:social_media/presentation/signup/widgets/profile_pic_choice.dart';
 import 'package:social_media/presentation/widgets/custom_blue_button.dart';
 import 'package:social_media/presentation/widgets/custom_text_field.dart';

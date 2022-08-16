@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_auth/email_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:social_media/domain/user_model/user_model.dart';
 import 'package:social_media/infrastructure/storage_methods/storage_methods.dart';
 
 class AuthMethods {
@@ -33,15 +34,20 @@ class AuthMethods {
               .uploadImageStorage('ProfilePics', profileImage, false);
         }
 
+        final UserModel _user = UserModel(
+            username: username,
+            email: email,
+            photoUrl: profileUrl,
+            bio: null,
+            uid: userCred.user!.uid,
+            following: [],
+            followers: []);
+
         // Store Auth Credentials in Firestore
-        await _firestore.collection('users').doc(userCred.user!.uid).set({
-          'username': username,
-          'email': email,
-          'uid': userCred.user!.uid,
-          'followers': [],
-          'following': [],
-          'profilePic': profileUrl,
-        });
+        await _firestore
+            .collection('users')
+            .doc(userCred.user!.uid)
+            .set(_user.toJson());
         resp = 'success';
       }
     } on FirebaseAuthException catch (err) {

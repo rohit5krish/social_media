@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
-import 'package:social_media/domain/forgot_password/otp_button_click.dart';
+import 'package:social_media/presentation/forgot_password/functionalities/otp_button_click.dart';
 import 'package:social_media/infrastructure/auth_methods/auth_methods.dart';
 import 'package:social_media/presentation/login/login.dart';
 import 'package:social_media/presentation/navigation/navigation.dart';

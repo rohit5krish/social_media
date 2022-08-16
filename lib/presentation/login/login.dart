@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
-import 'package:social_media/domain/login/login_button_click.dart';
+import 'package:social_media/presentation/login/functionalities/login_button_click.dart';
 import 'package:social_media/presentation/forgot_password/forgot_password.dart';
 import 'package:social_media/presentation/home/home.dart';
 import 'package:social_media/presentation/login/widget/footer_content.dart';

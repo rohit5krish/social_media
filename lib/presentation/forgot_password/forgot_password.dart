@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/styles.dart';
-import 'package:social_media/domain/forgot_password/button_click.dart';
+import 'package:social_media/presentation/forgot_password/functionalities/button_click.dart';
 import 'package:social_media/infrastructure/auth_methods/auth_methods.dart';
 import 'package:social_media/presentation/forgot_password/otp_page.dart';
 import 'package:social_media/presentation/widgets/blue_border_button.dart';
