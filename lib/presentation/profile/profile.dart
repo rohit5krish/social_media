@@ -45,11 +45,13 @@ class ProfilePage extends StatelessWidget {
                       sbHeight20,
                       Text(state.userInfos!.username, style: whiteTxt22B),
                       sbHeight20,
-                      Text(
-                        'Iam a Flutter Developer based on Kerala who is passionate in developing mobile applications.',
-                        style: whiteTxt16,
-                        textAlign: TextAlign.center,
-                      ),
+                      state.userInfos!.bio == null
+                          ? SizedBox()
+                          : Text(
+                              state.userInfos!.bio.toString(),
+                              style: whiteTxt16,
+                              textAlign: TextAlign.center,
+                            ),
                       sbHeight10,
                       // Edit Profile Button
                       BlueBorderButton(

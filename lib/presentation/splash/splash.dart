@@ -38,7 +38,6 @@ class SplashScreen extends StatelessWidget {
 
   Future<void> getDatas(BuildContext context) async {
     await Future.delayed(Duration(seconds: 2));
-    BlocProvider.of<ProfileBloc>(context).add(GetUserDetails());
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
       return LoginPage();
     }));
