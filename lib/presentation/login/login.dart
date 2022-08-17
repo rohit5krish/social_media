@@ -38,7 +38,6 @@ class LoginPage extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasData) {
-                  BlocProvider.of<ProfileBloc>(context).add(GetUserDetails());
                   return NavigationPage();
                 } else if (snapshot.hasError) {
                   return Center(

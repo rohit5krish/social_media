@@ -21,6 +21,7 @@ class AuthMethods {
     Uint8List? profileImage,
   }) async {
     try {
+      print('Auth method $profileImage');
       if (username.isNotEmpty && email.isNotEmpty && password.isNotEmpty) {
         String? profileUrl;
 

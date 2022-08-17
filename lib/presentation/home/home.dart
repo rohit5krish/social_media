@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_media/application/profile/profile_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
 import 'package:social_media/infrastructure/auth_methods/auth_methods.dart';
@@ -11,6 +13,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      BlocProvider.of<ProfileBloc>(context).add(GetUserDetails());
+    });
     return Scaffold(
       backgroundColor: blackColor,
       appBar: AppBar(

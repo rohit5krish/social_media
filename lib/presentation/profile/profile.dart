@@ -20,7 +20,10 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: blackColor,
         appBar: AppBar(
-          title: Text('rohxt._'),
+          title: Text(
+            'Profile',
+            style: whiteTxt22B,
+          ),
           centerTitle: true,
           backgroundColor: blackColor,
           automaticallyImplyLeading: false,

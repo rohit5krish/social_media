@@ -41,7 +41,7 @@ class ProfileTopFollowerSection extends StatelessWidget {
                   bottom: 2.5,
                   child: CircleAvatar(
                       radius: 50,
-                      backgroundImage: state.userInfos!.photoUrl == context
+                      backgroundImage: state.userInfos!.photoUrl == null
                           ? NetworkImage(
                               'https://wallpapercave.com/wp/wp2561857.jpg')
                           : NetworkImage(state.userInfos!.photoUrl.toString())),

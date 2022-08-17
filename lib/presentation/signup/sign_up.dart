@@ -128,9 +128,7 @@ class SignUp extends StatelessWidget {
                                   username: _usernameCtrl.text,
                                   email: _emailCtrl.text,
                                   password: _passCtrl.text,
-                                  profImage: state.selectedImage == null
-                                      ? null
-                                      : state.selectedImage,
+                                  profImage: tempImage,
                                 );
                               },
                             );

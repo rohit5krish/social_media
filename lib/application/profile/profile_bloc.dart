@@ -34,7 +34,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         uid: snapshot['uid'],
         following: snapshot['following'],
         followers: snapshot['followers'],
-        photoUrl: snapshot['profilePic'],
+        photoUrl: snapshot['photoUrl'],
       );
       emit(state.copyWith(userInfos: _userDetails));
     });
