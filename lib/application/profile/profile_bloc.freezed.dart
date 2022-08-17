@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProfileEvent {
-  int get index => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int index) toggleSelected,
+    required TResult Function() getUserDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(int index)? toggleSelected,
+    TResult Function()? getUserDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? toggleSelected,
+    TResult Function()? getUserDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ToggleSelected value) toggleSelected,
+    required TResult Function(GetUserDetails value) getUserDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ToggleSelected value)? toggleSelected,
+    TResult Function(GetUserDetails value)? getUserDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ToggleSelected value)? toggleSelected,
+    TResult Function(GetUserDetails value)? getUserDetails,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProfileEventCopyWith<ProfileEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,7 +61,6 @@ abstract class $ProfileEventCopyWith<$Res> {
   factory $ProfileEventCopyWith(
           ProfileEvent value, $Res Function(ProfileEvent) then) =
       _$ProfileEventCopyWithImpl<$Res>;
-  $Res call({int index});
 }
 
 /// @nodoc
@@ -70,27 +70,13 @@ class _$ProfileEventCopyWithImpl<$Res> implements $ProfileEventCopyWith<$Res> {
   final ProfileEvent _value;
   // ignore: unused_field
   final $Res Function(ProfileEvent) _then;
-
-  @override
-  $Res call({
-    Object? index = freezed,
-  }) {
-    return _then(_value.copyWith(
-      index: index == freezed
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$ToggleSelectedCopyWith<$Res>
-    implements $ProfileEventCopyWith<$Res> {
+abstract class _$$ToggleSelectedCopyWith<$Res> {
   factory _$$ToggleSelectedCopyWith(
           _$ToggleSelected value, $Res Function(_$ToggleSelected) then) =
       __$$ToggleSelectedCopyWithImpl<$Res>;
-  @override
   $Res call({int index});
 }
 
@@ -152,6 +138,7 @@ class _$ToggleSelected implements ToggleSelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int index) toggleSelected,
+    required TResult Function() getUserDetails,
   }) {
     return toggleSelected(index);
   }
@@ -160,6 +147,7 @@ class _$ToggleSelected implements ToggleSelected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(int index)? toggleSelected,
+    TResult Function()? getUserDetails,
   }) {
     return toggleSelected?.call(index);
   }
@@ -168,6 +156,7 @@ class _$ToggleSelected implements ToggleSelected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? toggleSelected,
+    TResult Function()? getUserDetails,
     required TResult orElse(),
   }) {
     if (toggleSelected != null) {
@@ -180,6 +169,7 @@ class _$ToggleSelected implements ToggleSelected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ToggleSelected value) toggleSelected,
+    required TResult Function(GetUserDetails value) getUserDetails,
   }) {
     return toggleSelected(this);
   }
@@ -188,6 +178,7 @@ class _$ToggleSelected implements ToggleSelected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ToggleSelected value)? toggleSelected,
+    TResult Function(GetUserDetails value)? getUserDetails,
   }) {
     return toggleSelected?.call(this);
   }
@@ -196,6 +187,7 @@ class _$ToggleSelected implements ToggleSelected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ToggleSelected value)? toggleSelected,
+    TResult Function(GetUserDetails value)? getUserDetails,
     required TResult orElse(),
   }) {
     if (toggleSelected != null) {
@@ -208,17 +200,121 @@ class _$ToggleSelected implements ToggleSelected {
 abstract class ToggleSelected implements ProfileEvent {
   const factory ToggleSelected({required final int index}) = _$ToggleSelected;
 
-  @override
   int get index;
-  @override
   @JsonKey(ignore: true)
   _$$ToggleSelectedCopyWith<_$ToggleSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$GetUserDetailsCopyWith<$Res> {
+  factory _$$GetUserDetailsCopyWith(
+          _$GetUserDetails value, $Res Function(_$GetUserDetails) then) =
+      __$$GetUserDetailsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetUserDetailsCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$$GetUserDetailsCopyWith<$Res> {
+  __$$GetUserDetailsCopyWithImpl(
+      _$GetUserDetails _value, $Res Function(_$GetUserDetails) _then)
+      : super(_value, (v) => _then(v as _$GetUserDetails));
+
+  @override
+  _$GetUserDetails get _value => super._value as _$GetUserDetails;
+}
+
+/// @nodoc
+
+class _$GetUserDetails implements GetUserDetails {
+  const _$GetUserDetails();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.getUserDetails()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetUserDetails);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int index) toggleSelected,
+    required TResult Function() getUserDetails,
+  }) {
+    return getUserDetails();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int index)? toggleSelected,
+    TResult Function()? getUserDetails,
+  }) {
+    return getUserDetails?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int index)? toggleSelected,
+    TResult Function()? getUserDetails,
+    required TResult orElse(),
+  }) {
+    if (getUserDetails != null) {
+      return getUserDetails();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ToggleSelected value) toggleSelected,
+    required TResult Function(GetUserDetails value) getUserDetails,
+  }) {
+    return getUserDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ToggleSelected value)? toggleSelected,
+    TResult Function(GetUserDetails value)? getUserDetails,
+  }) {
+    return getUserDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ToggleSelected value)? toggleSelected,
+    TResult Function(GetUserDetails value)? getUserDetails,
+    required TResult orElse(),
+  }) {
+    if (getUserDetails != null) {
+      return getUserDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUserDetails implements ProfileEvent {
+  const factory GetUserDetails() = _$GetUserDetails;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   List<bool> get selectedToggle => throw _privateConstructorUsedError;
+  UserModel? get userInfos => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -230,7 +326,7 @@ abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
           ProfileState value, $Res Function(ProfileState) then) =
       _$ProfileStateCopyWithImpl<$Res>;
-  $Res call({List<bool> selectedToggle});
+  $Res call({List<bool> selectedToggle, UserModel? userInfos});
 }
 
 /// @nodoc
@@ -244,12 +340,17 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
   @override
   $Res call({
     Object? selectedToggle = freezed,
+    Object? userInfos = freezed,
   }) {
     return _then(_value.copyWith(
       selectedToggle: selectedToggle == freezed
           ? _value.selectedToggle
           : selectedToggle // ignore: cast_nullable_to_non_nullable
               as List<bool>,
+      userInfos: userInfos == freezed
+          ? _value.userInfos
+          : userInfos // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
     ));
   }
 }
@@ -261,7 +362,7 @@ abstract class _$$_ProfileStateCopyWith<$Res>
           _$_ProfileState value, $Res Function(_$_ProfileState) then) =
       __$$_ProfileStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<bool> selectedToggle});
+  $Res call({List<bool> selectedToggle, UserModel? userInfos});
 }
 
 /// @nodoc
@@ -278,12 +379,17 @@ class __$$_ProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? selectedToggle = freezed,
+    Object? userInfos = freezed,
   }) {
     return _then(_$_ProfileState(
       selectedToggle: selectedToggle == freezed
           ? _value._selectedToggle
           : selectedToggle // ignore: cast_nullable_to_non_nullable
               as List<bool>,
+      userInfos: userInfos == freezed
+          ? _value.userInfos
+          : userInfos // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
     ));
   }
 }
@@ -291,7 +397,8 @@ class __$$_ProfileStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProfileState implements _ProfileState {
-  const _$_ProfileState({required final List<bool> selectedToggle})
+  const _$_ProfileState(
+      {required final List<bool> selectedToggle, this.userInfos})
       : _selectedToggle = selectedToggle;
 
   final List<bool> _selectedToggle;
@@ -302,8 +409,11 @@ class _$_ProfileState implements _ProfileState {
   }
 
   @override
+  final UserModel? userInfos;
+
+  @override
   String toString() {
-    return 'ProfileState(selectedToggle: $selectedToggle)';
+    return 'ProfileState(selectedToggle: $selectedToggle, userInfos: $userInfos)';
   }
 
   @override
@@ -312,12 +422,15 @@ class _$_ProfileState implements _ProfileState {
         (other.runtimeType == runtimeType &&
             other is _$_ProfileState &&
             const DeepCollectionEquality()
-                .equals(other._selectedToggle, _selectedToggle));
+                .equals(other._selectedToggle, _selectedToggle) &&
+            const DeepCollectionEquality().equals(other.userInfos, userInfos));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_selectedToggle));
+      runtimeType,
+      const DeepCollectionEquality().hash(_selectedToggle),
+      const DeepCollectionEquality().hash(userInfos));
 
   @JsonKey(ignore: true)
   @override
@@ -326,11 +439,14 @@ class _$_ProfileState implements _ProfileState {
 }
 
 abstract class _ProfileState implements ProfileState {
-  const factory _ProfileState({required final List<bool> selectedToggle}) =
-      _$_ProfileState;
+  const factory _ProfileState(
+      {required final List<bool> selectedToggle,
+      final UserModel? userInfos}) = _$_ProfileState;
 
   @override
   List<bool> get selectedToggle;
+  @override
+  UserModel? get userInfos;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>
