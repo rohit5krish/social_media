@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_media/application/profile/profile_bloc.dart';
 import 'package:social_media/presentation/login/login.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -36,6 +38,7 @@ class SplashScreen extends StatelessWidget {
 
   Future<void> getDatas(BuildContext context) async {
     await Future.delayed(Duration(seconds: 2));
+    BlocProvider.of<ProfileBloc>(context).add(GetUserDetails());
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
       return LoginPage();
     }));
