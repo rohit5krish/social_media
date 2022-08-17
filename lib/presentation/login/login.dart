@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_media/application/profile/profile_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
 import 'package:social_media/presentation/login/functionalities/login_button_click.dart';
@@ -36,6 +38,7 @@ class LoginPage extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasData) {
+                  BlocProvider.of<ProfileBloc>(context).add(GetUserDetails());
                   return NavigationPage();
                 } else if (snapshot.hasError) {
                   return Center(

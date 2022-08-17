@@ -66,7 +66,8 @@ class SignUp extends StatelessWidget {
                                     state.selectedImage != null) {
                                   tempImage = state.selectedImage;
                                 }
-                                return isDefaultDp
+                                return isDefaultDp &&
+                                        state.selectedImage == null
                                     ? CircleAvatar(
                                         radius: 60,
                                         backgroundImage: NetworkImage(
@@ -115,16 +116,24 @@ class SignUp extends StatelessWidget {
                           formKey: formKey,
                         ),
                         sbHeight10,
-                        CustomBlueButton(
-                          buttonText: 'Sign Up',
-                          formKey: formKey,
-                          onButtonClick: () async {
-                            return await SignupButtonClicked(
-                                context: context,
-                                formKey: formKey,
-                                username: _usernameCtrl.text,
-                                email: _emailCtrl.text,
-                                password: _passCtrl.text);
+                        BlocBuilder<SignupBloc, SignupState>(
+                          builder: (context, state) {
+                            return CustomBlueButton(
+                              buttonText: 'Sign Up',
+                              formKey: formKey,
+                              onButtonClick: () async {
+                                return await SignupButtonClicked(
+                                  context: context,
+                                  formKey: formKey,
+                                  username: _usernameCtrl.text,
+                                  email: _emailCtrl.text,
+                                  password: _passCtrl.text,
+                                  profImage: state.selectedImage == null
+                                      ? null
+                                      : state.selectedImage,
+                                );
+                              },
+                            );
                           },
                         ),
                       ],
