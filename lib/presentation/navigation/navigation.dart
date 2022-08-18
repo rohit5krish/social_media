@@ -63,7 +63,7 @@ showAlertBox(BuildContext context) {
                   bool isPicked = await PickImage(ImageSource.gallery, context);
                   if (isPicked) {
                     Navigator.of(context)
-                        .pushReplacement(MaterialPageRoute(builder: (context) {
+                        .push(MaterialPageRoute(builder: (context) {
                       return UploadPost();
                     }));
                   } else {
@@ -89,7 +89,7 @@ showAlertBox(BuildContext context) {
                   bool isPicked = await PickImage(ImageSource.gallery, context);
                   if (isPicked) {
                     Navigator.of(context)
-                        .pushReplacement(MaterialPageRoute(builder: (context) {
+                        .push(MaterialPageRoute(builder: (context) {
                       return UploadPost();
                     }));
                   } else {
