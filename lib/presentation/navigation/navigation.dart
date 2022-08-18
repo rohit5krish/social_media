@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/infrastructure/pick_image/pick_image.dart';
 import 'package:social_media/presentation/camera/camera.dart';
 import 'package:social_media/presentation/gallery/gallery.dart';
 import 'package:social_media/presentation/home/home.dart';
@@ -8,6 +10,7 @@ import 'package:social_media/presentation/messages/messages.dart';
 import 'package:social_media/presentation/navigation/widget/bottom_nav.dart';
 import 'package:social_media/presentation/notification/notification.dart';
 import 'package:social_media/presentation/profile/profile.dart';
+import 'package:social_media/presentation/upload_post/upload_post.dart';
 
 class NavigationPage extends StatelessWidget {
   NavigationPage({Key? key}) : super(key: key);
@@ -56,11 +59,21 @@ showAlertBox(BuildContext context) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
-                onTap: () {
-                  Navigator.of(context)
-                      .pushReplacement(MaterialPageRoute(builder: (context) {
-                    return CameraScreen();
-                  }));
+                onTap: () async {
+                  bool isPicked = await PickImage(ImageSource.gallery, context);
+                  if (isPicked) {
+                    Navigator.of(context)
+                        .pushReplacement(MaterialPageRoute(builder: (context) {
+                      return UploadPost();
+                    }));
+                  } else {
+                    return;
+                  }
+
+                  // Navigator.of(context)
+                  //     .push(MaterialPageRoute(builder: (context) {
+                  //   return CameraScreen();
+                  // }));
                 },
                 child: Row(
                   children: const [
@@ -72,11 +85,20 @@ showAlertBox(BuildContext context) {
               ),
               sbHeight20,
               InkWell(
-                onTap: () {
-                  Navigator.of(context)
-                      .pushReplacement(MaterialPageRoute(builder: (context) {
-                    return GalleryScreen();
-                  }));
+                onTap: () async {
+                  bool isPicked = await PickImage(ImageSource.gallery, context);
+                  if (isPicked) {
+                    Navigator.of(context)
+                        .pushReplacement(MaterialPageRoute(builder: (context) {
+                      return UploadPost();
+                    }));
+                  } else {
+                    return;
+                  }
+                  // Navigator.of(context)
+                  //     .pushReplacement(MaterialPageRoute(builder: (context) {
+                  //   return GalleryScreen();
+                  // }));
                 },
                 child: Row(
                   children: const [

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
-import 'package:social_media/infrastructure/signup/pick_image.dart';
+import 'package:social_media/infrastructure/pick_image/pick_image.dart';
 
 bool addProfileChoice(BuildContext context) {
   final screenSize = MediaQuery.of(context).size;

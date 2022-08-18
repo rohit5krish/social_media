@@ -9,6 +9,17 @@ class GalleryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: blackColor,
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(Icons.close)),
+        title: Text(
+          'Gallery',
+          style: whiteTxt22B,
+        ),
+      ),
       body: Center(child: Text('Gallery', style: whiteTxt18)),
     );
   }

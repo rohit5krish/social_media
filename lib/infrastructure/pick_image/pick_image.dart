@@ -12,8 +12,8 @@ Future<bool> PickImage(ImageSource source, BuildContext context) async {
   if (img != null) {
     Uint8List image = await img.readAsBytes();
     BlocProvider.of<SignupBloc>(context).add(UpdateImage(image: image));
-    return false;
-  } else {
     return true;
+  } else {
+    return false;
   }
 }

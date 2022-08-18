@@ -62,10 +62,6 @@ class SignUp extends StatelessWidget {
                           children: [
                             BlocBuilder<SignupBloc, SignupState>(
                               builder: (context, state) {
-                                if (!isDefaultDp &&
-                                    state.selectedImage != null) {
-                                  tempImage = state.selectedImage;
-                                }
                                 return isDefaultDp &&
                                         state.selectedImage == null
                                     ? CircleAvatar(
@@ -75,7 +71,8 @@ class SignUp extends StatelessWidget {
                                       )
                                     : CircleAvatar(
                                         radius: 60,
-                                        backgroundImage: MemoryImage(tempImage),
+                                        backgroundImage:
+                                            MemoryImage(state.selectedImage!),
                                       );
                               },
                             ),
