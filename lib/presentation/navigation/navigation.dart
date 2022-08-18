@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
+import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/presentation/camera/camera.dart';
+import 'package:social_media/presentation/gallery/gallery.dart';
 import 'package:social_media/presentation/home/home.dart';
 import 'package:social_media/presentation/messages/messages.dart';
 import 'package:social_media/presentation/navigation/widget/bottom_nav.dart';
@@ -9,9 +12,9 @@ import 'package:social_media/presentation/profile/profile.dart';
 class NavigationPage extends StatelessWidget {
   NavigationPage({Key? key}) : super(key: key);
   final _pages = [
-    HomePage(),
-    MessagesPage(),
-    NotificationsPage(),
+    const HomePage(),
+    const MessagesPage(),
+    const NotificationsPage(),
     ProfilePage()
   ];
 
@@ -25,13 +28,76 @@ class NavigationPage extends StatelessWidget {
           return _pages[idx];
         },
       )),
-      bottomNavigationBar: BottomNav(),
+      bottomNavigationBar: const BottomNav(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+        onPressed: () {
+          showAlertBox(context);
+        },
+        child: const Icon(Icons.add),
         backgroundColor: blueClr800,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+}
+
+showAlertBox(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: lightBlack,
+          title: const Text(
+            'Select an Option',
+            style: whiteTxt22,
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.of(context)
+                      .pushReplacement(MaterialPageRoute(builder: (context) {
+                    return CameraScreen();
+                  }));
+                },
+                child: Row(
+                  children: const [
+                    Icon(Icons.camera_alt, color: whiteColor),
+                    sbWidth10,
+                    Text('Open Camera', style: whiteTxt15),
+                  ],
+                ),
+              ),
+              sbHeight20,
+              InkWell(
+                onTap: () {
+                  Navigator.of(context)
+                      .pushReplacement(MaterialPageRoute(builder: (context) {
+                    return GalleryScreen();
+                  }));
+                },
+                child: Row(
+                  children: const [
+                    Icon(Icons.image, color: whiteColor),
+                    sbWidth10,
+                    Text(
+                      'Choose from gallery',
+                      style: whiteTxt15,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Cancel'))
+          ],
+        );
+      });
 }
