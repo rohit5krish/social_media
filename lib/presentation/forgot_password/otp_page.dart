@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/domain/signup_model/signup_model.dart';
 import 'package:social_media/presentation/forgot_password/functionalities/otp_button_click.dart';
-import 'package:social_media/infrastructure/auth_methods/auth_methods.dart';
-import 'package:social_media/presentation/login/login.dart';
-import 'package:social_media/presentation/navigation/navigation.dart';
+import 'package:social_media/presentation/signup/widgets/signup_inherited_widget.dart';
 import 'package:social_media/presentation/widgets/custom_blue_button.dart';
-import 'package:social_media/presentation/widgets/snackbar.dart';
 
 class OtpPage extends StatelessWidget {
-  final String email;
-
-  OtpPage({Key? key, required this.email}) : super(key: key);
+  OtpPage({Key? key}) : super(key: key);
 
   final TextEditingController _otpCtrl = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
+    final SignupModel signupDetails =
+        SignUpInheritedWidget.of(context)!.signupDetails;
     return Scaffold(
         body: SafeArea(
             child: Padding(
@@ -72,9 +70,9 @@ class OtpPage extends StatelessWidget {
                 onButtonClick: () async {
                   await OtpButtonClick(
                       context: context,
-                      email: email,
                       otp: _otpCtrl.text,
-                      formKey: formKey);
+                      formKey: formKey,
+                      signupDetails: signupDetails);
                 })
           ],
         ),

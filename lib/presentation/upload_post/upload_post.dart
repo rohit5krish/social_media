@@ -4,8 +4,8 @@ import 'package:social_media/application/signup/signup_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
 
-class UploadPost extends StatelessWidget {
-  UploadPost({Key? key}) : super(key: key);
+class UploadPostScreen extends StatelessWidget {
+  UploadPostScreen({Key? key}) : super(key: key);
 
   final _descriptionCtrl = TextEditingController();
 

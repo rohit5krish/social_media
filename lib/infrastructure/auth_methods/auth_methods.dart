@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,7 +22,6 @@ class AuthMethods {
     Uint8List? profileImage,
   }) async {
     try {
-      print('Auth method $profileImage');
       if (username.isNotEmpty && email.isNotEmpty && password.isNotEmpty) {
         String? profileUrl;
 
@@ -49,6 +49,22 @@ class AuthMethods {
             .collection('users')
             .doc(userCred.user!.uid)
             .set(_user.toJson());
+        resp = 'success';
+      }
+    } on FirebaseAuthException catch (err) {
+      resp = err.message.toString();
+    } catch (e) {
+      resp = e.toString();
+    }
+    return resp;
+  }
+
+  Future<String> validateEmail(String email) async {
+    try {
+      List<String> details = await _auth.fetchSignInMethodsForEmail(email);
+      if (details.contains('password')) {
+        resp = 'Email already linked to another account.';
+      } else if (details.isEmpty) {
         resp = 'success';
       }
     } on FirebaseAuthException catch (err) {

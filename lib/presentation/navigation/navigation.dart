@@ -3,8 +3,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
 import 'package:social_media/infrastructure/pick_image/pick_image.dart';
-import 'package:social_media/presentation/camera/camera.dart';
-import 'package:social_media/presentation/gallery/gallery.dart';
 import 'package:social_media/presentation/home/home.dart';
 import 'package:social_media/presentation/messages/messages.dart';
 import 'package:social_media/presentation/navigation/widget/bottom_nav.dart';
@@ -64,7 +62,7 @@ showAlertBox(BuildContext context) {
                   if (isPicked) {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return UploadPost();
+                      return UploadPostScreen();
                     }));
                   } else {
                     return;
@@ -90,7 +88,7 @@ showAlertBox(BuildContext context) {
                   if (isPicked) {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return UploadPost();
+                      return UploadPostScreen();
                     }));
                   } else {
                     return;

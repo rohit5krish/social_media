@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/application/signup/signup_bloc.dart';
 import 'package:social_media/core/constants/colors.dart';
 import 'package:social_media/core/constants/styles.dart';
+import 'package:social_media/domain/signup_model/signup_model.dart';
 import 'package:social_media/presentation/signup/functionalities/signup_button.dart';
 import 'package:social_media/presentation/signup/widgets/profile_pic_choice.dart';
+import 'package:social_media/presentation/signup/widgets/signup_inherited_widget.dart';
 import 'package:social_media/presentation/widgets/custom_blue_button.dart';
 import 'package:social_media/presentation/widgets/custom_text_field.dart';
 
@@ -62,6 +64,9 @@ class SignUp extends StatelessWidget {
                           children: [
                             BlocBuilder<SignupBloc, SignupState>(
                               builder: (context, state) {
+                                if (state.selectedImage != null) {
+                                  tempImage = state.selectedImage;
+                                }
                                 return isDefaultDp &&
                                         state.selectedImage == null
                                     ? CircleAvatar(
@@ -71,8 +76,7 @@ class SignUp extends StatelessWidget {
                                       )
                                     : CircleAvatar(
                                         radius: 60,
-                                        backgroundImage:
-                                            MemoryImage(state.selectedImage!),
+                                        backgroundImage: MemoryImage(tempImage),
                                       );
                               },
                             ),
@@ -107,10 +111,31 @@ class SignUp extends StatelessWidget {
                           formKey: formKey,
                         ),
                         sbHeight10,
-                        CustomTextField(
-                          labelText: 'Password',
-                          textCtrl: _passCtrl,
-                          formKey: formKey,
+                        TextFormField(
+                          controller: _passCtrl,
+                          style: whiteTxt16,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Enter password';
+                            } else if (value.length < 6) {
+                              return 'Minimum 6 characters required';
+                            } else {
+                              return null;
+                            }
+                          },
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: whiteClr24,
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 15),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              label: Text(
+                                'Password',
+                                style: txtFormStyle,
+                              )),
                         ),
                         sbHeight10,
                         BlocBuilder<SignupBloc, SignupState>(
@@ -122,10 +147,12 @@ class SignUp extends StatelessWidget {
                                 return await SignupButtonClicked(
                                   context: context,
                                   formKey: formKey,
-                                  username: _usernameCtrl.text,
-                                  email: _emailCtrl.text,
-                                  password: _passCtrl.text,
-                                  profImage: tempImage,
+                                  signupDetails: SignupModel(
+                                    username: _usernameCtrl.text.trim(),
+                                    email: _emailCtrl.text.trim(),
+                                    password: _passCtrl.text.trim(),
+                                    profImage: tempImage,
+                                  ),
                                 );
                               },
                             );
