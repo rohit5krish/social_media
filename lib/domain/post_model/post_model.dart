@@ -3,6 +3,8 @@ class PostModel {
   final String postId;
   final String uid;
   final List likes;
+  final String username;
+  final String? profImage;
   final String? description;
   final datePosted;
 
@@ -12,6 +14,8 @@ class PostModel {
     required this.uid,
     required this.likes,
     required this.datePosted,
+    required this.username,
+    required this.profImage,
     this.description,
   });
 
@@ -22,5 +26,7 @@ class PostModel {
         "likes": likes,
         "description": description,
         "datePosted": datePosted,
+        "username": username,
+        "profImage": profImage,
       };
 }

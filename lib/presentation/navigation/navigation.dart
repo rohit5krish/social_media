@@ -58,11 +58,11 @@ showAlertBox(BuildContext context) {
             children: [
               InkWell(
                 onTap: () async {
-                  bool isPicked = await PickImage(ImageSource.gallery, context);
-                  if (isPicked) {
+                  var pickedImg = await PickImage(ImageSource.gallery, context);
+                  if (pickedImg != null) {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return UploadPostScreen();
+                      return UploadPostScreen(imgPath: pickedImg);
                     }));
                   } else {
                     return;
@@ -84,11 +84,11 @@ showAlertBox(BuildContext context) {
               sbHeight20,
               InkWell(
                 onTap: () async {
-                  bool isPicked = await PickImage(ImageSource.gallery, context);
-                  if (isPicked) {
+                  var pickedImg = await PickImage(ImageSource.gallery, context);
+                  if (pickedImg != null) {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return UploadPostScreen();
+                      return UploadPostScreen(imgPath: pickedImg);
                     }));
                   } else {
                     return;

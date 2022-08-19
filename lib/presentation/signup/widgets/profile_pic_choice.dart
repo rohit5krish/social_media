@@ -6,15 +6,15 @@ import 'package:social_media/infrastructure/pick_image/pick_image.dart';
 
 bool addProfileChoice(BuildContext context) {
   final screenSize = MediaQuery.of(context).size;
-  bool isPhotoPicked = false;
+  var isPhotoPicked;
   showModalBottomSheet(
       backgroundColor: lightBlack,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       context: context,
       builder: (context) {
-        return Container(
+        return SizedBox(
           height: screenSize.height * 0.17,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -28,12 +28,12 @@ bool addProfileChoice(BuildContext context) {
                         isPhotoPicked =
                             await PickImage(ImageSource.camera, context);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.camera_alt_rounded,
                         size: 45,
                         color: whiteColor,
                       )),
-                  Text(
+                  const Text(
                     'Camera',
                     style: whiteTxt18,
                   )
@@ -48,12 +48,12 @@ bool addProfileChoice(BuildContext context) {
                         isPhotoPicked =
                             await PickImage(ImageSource.gallery, context);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.image,
                         size: 45,
                         color: whiteColor,
                       )),
-                  Text(
+                  const Text(
                     'Gallery',
                     style: whiteTxt18,
                   )
@@ -63,5 +63,9 @@ bool addProfileChoice(BuildContext context) {
           ),
         );
       });
-  return isPhotoPicked;
+  if (isPhotoPicked == null) {
+    return false;
+  } else {
+    return true;
+  }
 }

@@ -11,20 +11,30 @@ class FirestoreMethods {
   Future<String> uploadPost({
     required Uint8List imgFile,
     required String uid,
+    required String username,
+    String? profImage,
     String? description,
   }) async {
     String res = 'Unknown Error';
     try {
       String postUrl =
           await StorageMethods().uploadImageStorage('posts', imgFile, true);
-      final PostModel _post = PostModel(
+      final String picFolderName =
+          '$uid${DateTime.now().toString().replaceRange(10, 11, '_')}';
+      PostModel _post = PostModel(
           postUrl: postUrl,
-          postId: 'postId',
+          postId: picFolderName,
           uid: uid,
           likes: [],
           datePosted: DateTime.now(),
-          description: description);
-      // firestore.collection('posts').
+          description: description,
+          username: username,
+          profImage: profImage);
+      await firestore
+          .collection('posts')
+          .doc(picFolderName)
+          .set(_post.toJson());
+      res = 'success';
     } catch (e) {
       res = e.toString();
     }
